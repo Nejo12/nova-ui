@@ -57,7 +57,9 @@ const primitiveEntries = flatten(source.primitive);
 const lightEntries = flatten(source.semantic.light);
 const darkEntries = flatten(source.semantic.dark);
 
-const primitiveCss = primitiveEntries.map(([path, value]) => `  ${cssVar(path)}: ${value};`).join('\n');
+const primitiveCss = primitiveEntries
+  .map(([path, value]) => `  ${cssVar(path)}: ${value};`)
+  .join('\n');
 const lightCss = lightEntries.map(([path, value]) => `  ${cssVar(path)}: ${value};`).join('\n');
 const darkCss = darkEntries.map(([path, value]) => `  ${cssVar(path)}: ${value};`).join('\n');
 
@@ -74,4 +76,8 @@ const resolved = {
 
 await mkdir(outputDir, { recursive: true });
 await writeFile(resolve(outputDir, 'tokens.css'), css, 'utf8');
-await writeFile(resolve(outputDir, 'tokens.json'), `${JSON.stringify(resolved, null, 2)}\n`, 'utf8');
+await writeFile(
+  resolve(outputDir, 'tokens.json'),
+  `${JSON.stringify(resolved, null, 2)}\n`,
+  'utf8',
+);
