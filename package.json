@@ -1,0 +1,27 @@
+{
+  "name": "nova-ui-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@12.3.4",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "turbo run lint",
+    "lint:styles": "turbo run lint:styles",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "storybook": "pnpm --filter @nova/ui storybook",
+    "storybook:build": "pnpm --filter @nova/ui build-storybook",
+    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm storybook:build"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.10.12",
+    "typescript": "~6.0.3"
+  }
+}
