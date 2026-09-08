@@ -24,6 +24,7 @@
     "@nova/eslint-config": "workspace:*",
     "@nova/stylelint-config": "workspace:*",
     "eslint": "^10.10.0",
+    "globals": "^17.12.0",
     "prettier": "^3.9.6",
     "stylelint": "^17.15.0",
     "turbo": "^2.10.12",
