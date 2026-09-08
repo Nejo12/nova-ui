@@ -2,6 +2,7 @@
   "name": "nova-ui-workspace",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@12.3.4",
   "engines": {
     "node": ">=20.19.0"
@@ -11,8 +12,8 @@
     "dev": "turbo run dev --parallel",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "turbo run lint",
-    "lint:styles": "turbo run lint:styles",
+    "lint": "eslint . --max-warnings=0",
+    "lint:styles": "stylelint \"**/*.{css,scss}\" --allow-empty-input",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "storybook": "pnpm --filter @nova/ui storybook",
@@ -20,7 +21,11 @@
     "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm storybook:build"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
+    "@nova/eslint-config": "workspace:*",
+    "@nova/stylelint-config": "workspace:*",
+    "eslint": "^10.10.0",
+    "prettier": "^3.9.6",
+    "stylelint": "^17.15.0",
     "turbo": "^2.10.12",
     "typescript": "~6.0.3"
   }
