@@ -9,14 +9,14 @@ const preview: Preview = {
         icon: 'paintbrush',
         items: [
           { value: 'light', title: 'Light' },
-          { value: 'dark', title: 'Dark' }
+          { value: 'dark', title: 'Dark' },
         ],
-        dynamicTitle: true
-      }
-    }
+        dynamicTitle: true,
+      },
+    },
   },
   initialGlobals: {
-    theme: 'light'
+    theme: 'light',
   },
   decorators: [
     (Story, context) => {
@@ -24,13 +24,13 @@ const preview: Preview = {
       document.body.style.background = 'var(--nova-color-bg-page)';
       document.body.style.color = 'var(--nova-color-text-primary)';
       return Story();
-    }
+    },
   ],
   parameters: {
     a11y: {
-      test: 'error'
-    }
-  }
+      test: 'error',
+    },
+  },
 };
 
 export default preview;
