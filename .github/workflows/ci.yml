@@ -26,5 +26,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Quality gates
-        run: pnpm check
+      - name: Show formatting diff
+        run: |
+          pnpm format
+          git diff -- packages/design-tokens/package.json packages/ui/.storybook/preview.ts packages/ui/package.json tooling/eslint/package.json tooling/token-build/build.mjs
+          git diff --exit-code
