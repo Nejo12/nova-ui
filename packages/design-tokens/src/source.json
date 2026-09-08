@@ -1,0 +1,112 @@
+{
+  "$schemaVersion": 1,
+  "primitive": {
+    "color": {
+      "neutral": {
+        "0": "#ffffff",
+        "50": "#f9fafb",
+        "100": "#f3f4f6",
+        "200": "#e5e7eb",
+        "300": "#d1d5db",
+        "400": "#9ca3af",
+        "500": "#6b7280",
+        "600": "#4b5563",
+        "700": "#374151",
+        "800": "#1f2937",
+        "900": "#111827",
+        "950": "#030712"
+      },
+      "green": { "600": "#16a34a", "950": "#052e16" },
+      "red": { "600": "#dc2626", "950": "#450a0a" },
+      "amber": { "500": "#f59e0b", "950": "#451a03" },
+      "blue": { "600": "#2563eb", "950": "#172554" }
+    },
+    "space": {
+      "0": "0",
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "8": "2rem",
+      "10": "2.5rem",
+      "12": "3rem",
+      "16": "4rem",
+      "20": "5rem",
+      "24": "6rem"
+    },
+    "radius": {
+      "sm": "0.375rem",
+      "md": "0.625rem",
+      "lg": "0.875rem",
+      "pill": "9999px"
+    },
+    "duration": {
+      "instant": "0ms",
+      "fast": "120ms",
+      "standard": "180ms",
+      "deliberate": "280ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.2, 0, 0, 1)",
+      "emphasized": "cubic-bezier(0.2, 0, 0, 1.2)"
+    },
+    "z": {
+      "base": "0",
+      "sticky": "100",
+      "dropdown": "300",
+      "overlay": "500",
+      "modal": "700",
+      "toast": "900"
+    },
+    "control": {
+      "heightSm": "2rem",
+      "heightMd": "2.5rem",
+      "heightLg": "3rem",
+      "touchTarget": "2.75rem"
+    }
+  },
+  "semantic": {
+    "light": {
+      "color": {
+        "bgPage": "{primitive.color.neutral.0}",
+        "bgSurface": "{primitive.color.neutral.0}",
+        "bgSubtle": "{primitive.color.neutral.50}",
+        "textPrimary": "{primitive.color.neutral.900}",
+        "textSecondary": "{primitive.color.neutral.600}",
+        "textDisabled": "{primitive.color.neutral.400}",
+        "borderDefault": "{primitive.color.neutral.200}",
+        "borderStrong": "{primitive.color.neutral.400}",
+        "actionPrimary": "{primitive.color.neutral.900}",
+        "actionPrimaryText": "{primitive.color.neutral.0}",
+        "actionSecondary": "{primitive.color.neutral.100}",
+        "focusRing": "{primitive.color.blue.600}",
+        "statusSuccess": "{primitive.color.green.600}",
+        "statusDanger": "{primitive.color.red.600}",
+        "statusWarning": "{primitive.color.amber.500}",
+        "statusInfo": "{primitive.color.blue.600}"
+      }
+    },
+    "dark": {
+      "color": {
+        "bgPage": "{primitive.color.neutral.950}",
+        "bgSurface": "{primitive.color.neutral.900}",
+        "bgSubtle": "{primitive.color.neutral.800}",
+        "textPrimary": "{primitive.color.neutral.50}",
+        "textSecondary": "{primitive.color.neutral.300}",
+        "textDisabled": "{primitive.color.neutral.500}",
+        "borderDefault": "{primitive.color.neutral.700}",
+        "borderStrong": "{primitive.color.neutral.500}",
+        "actionPrimary": "{primitive.color.neutral.50}",
+        "actionPrimaryText": "{primitive.color.neutral.950}",
+        "actionSecondary": "{primitive.color.neutral.800}",
+        "focusRing": "{primitive.color.blue.600}",
+        "statusSuccess": "{primitive.color.green.600}",
+        "statusDanger": "{primitive.color.red.600}",
+        "statusWarning": "{primitive.color.amber.500}",
+        "statusInfo": "{primitive.color.blue.600}"
+      }
+    }
+  }
+}
