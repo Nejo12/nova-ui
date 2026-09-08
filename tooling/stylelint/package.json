@@ -1,0 +1,16 @@
+{
+  "name": "@nova/stylelint-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "peerDependencies": {
+    "stylelint": "^17.0.0"
+  },
+  "dependencies": {
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-declaration-strict-value": "^1.12.1"
+  }
+}
