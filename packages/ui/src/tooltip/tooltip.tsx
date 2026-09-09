@@ -20,7 +20,7 @@ export type TooltipProps = {
 };
 
 type DescribedTriggerProps = {
-  'aria-describedby'?: string;
+  'aria-describedby'?: string | undefined;
 };
 
 type InteractionState = {
