@@ -6,6 +6,9 @@ export type { ButtonProps, ButtonVariant } from './button/button';
 export { Dialog } from './dialog/dialog';
 export type { DialogAction, DialogProps, DialogSize, DialogType } from './dialog/dialog';
 
+export { FormField } from './form-field/form-field';
+export type { FormFieldProps } from './form-field/form-field';
+
 export { InlineAlert } from './inline-alert/inline-alert';
 export type {
   InlineAlertAnnouncement,
