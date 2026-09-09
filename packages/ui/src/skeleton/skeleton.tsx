@@ -17,12 +17,7 @@ const RADIUS_CLASS: Record<SkeletonRadius, string> = {
   pill: styles.radiusPill!,
 };
 
-export function Skeleton({
-  width = '100%',
-  height,
-  radius = 'sm',
-  className,
-}: SkeletonProps) {
+export function Skeleton({ width = '100%', height, radius = 'sm', className }: SkeletonProps) {
   const classNames = [styles.skeleton, RADIUS_CLASS[radius], className]
     .filter(Boolean)
     .join(' ');
