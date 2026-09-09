@@ -1,0 +1,52 @@
+.skeleton {
+  display: block;
+  background: var(--nova-color-skeleton);
+}
+
+.radiusSm {
+  border-radius: var(--nova-radius-sm);
+}
+
+.radiusMd {
+  border-radius: var(--nova-radius-md);
+}
+
+.radiusPill {
+  border-radius: var(--nova-radius-pill);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes delayedRevealFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.delayedReveal {
+  animation-name: delayedRevealFadeIn;
+  animation-duration: var(--nova-duration-fast);
+  animation-delay: var(--nova-duration-standard);
+  animation-timing-function: var(--nova-easing-standard);
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .delayedReveal {
+    animation-duration: 0.01ms;
+  }
+}
