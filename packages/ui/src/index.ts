@@ -1,10 +1,6 @@
 export type { NovaResolvedTheme } from '@nova/design-tokens';
 
-export {
-  DelayedReveal,
-  Skeleton,
-  SkeletonRegion,
-} from './skeleton/skeleton';
+export { DelayedReveal, Skeleton, SkeletonRegion } from './skeleton/skeleton';
 export type {
   DelayedRevealProps,
   SkeletonProps,
