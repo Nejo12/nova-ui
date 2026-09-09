@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
-import '@nova/design-tokens/tokens.css';
+import '@nova-component/design-tokens/tokens.css';
 
 const preview: Preview = {
   globalTypes: {

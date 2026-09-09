@@ -157,7 +157,7 @@ importers:
 
   packages/ui:
     dependencies:
-      '@nova/design-tokens':
+      '@nova-component/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
     devDependencies:

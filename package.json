@@ -16,9 +16,9 @@
     "lint:styles": "stylelint \"**/*.{css,scss}\" --ignore-pattern \"**/dist/**\" --allow-empty-input",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
-    "tokens:verify": "pnpm --filter @nova/design-tokens build && git diff --exit-code -- packages/design-tokens/dist/tokens.css packages/design-tokens/dist/tokens.json",
-    "storybook": "pnpm --filter @nova/ui storybook",
-    "storybook:build": "pnpm --filter @nova/ui build-storybook",
+    "tokens:verify": "pnpm --filter @nova-component/design-tokens build && git diff --exit-code -- packages/design-tokens/dist/tokens.css packages/design-tokens/dist/tokens.json",
+    "storybook": "pnpm --filter @nova-component/ui storybook",
+    "storybook:build": "pnpm --filter @nova-component/ui build-storybook",
     "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm storybook:build"
   },
   "devDependencies": {

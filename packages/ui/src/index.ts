@@ -1,4 +1,4 @@
-export type { NovaResolvedTheme } from '@nova/design-tokens';
+export type { NovaResolvedTheme } from '@nova-component/design-tokens';
 
 export { Button } from './button/button';
 export type { ButtonProps, ButtonVariant } from './button/button';
@@ -36,4 +36,4 @@ export type { ToastAction, ToastProps, ToastTone } from './toast/toast';
 export { Tooltip } from './tooltip/tooltip';
 export type { TooltipPlacement, TooltipProps } from './tooltip/tooltip';
 
-export const NOVA_UI_PACKAGE = '@nova/ui' as const;
+export const NOVA_UI_PACKAGE = '@nova-component/ui' as const;

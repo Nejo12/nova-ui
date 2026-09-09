@@ -1,7 +1,7 @@
 {
-  "name": "@nova/design-tokens",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@nova-component/design-tokens",
+  "version": "0.1.0",
+  "description": "Shared semantic design tokens for the Nova product family.",
   "type": "module",
   "files": [
     "dist"
@@ -14,8 +14,24 @@
     "./tokens.css": "./dist/tokens.css",
     "./tokens.json": "./dist/tokens.json"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nejo12/nova-ui.git",
+    "directory": "packages/design-tokens"
+  },
+  "homepage": "https://github.com/Nejo12/nova-ui#readme",
+  "keywords": [
+    "nova",
+    "design-system",
+    "design-tokens",
+    "css-variables"
+  ],
   "scripts": {
     "build": "node ../../tooling/token-build/build.mjs && tsc -p tsconfig.build.json",
+    "prepack": "pnpm build",
     "lint": "eslint src --max-warnings=0",
     "lint:styles": "stylelint 'dist/**/*.css' --allow-empty-input",
     "test": "vitest run",
