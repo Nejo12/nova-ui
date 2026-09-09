@@ -50,7 +50,7 @@ jobs:
           pnpm --filter @nova-component/ui pack --pack-destination "$GITHUB_WORKSPACE/artifacts"
 
       - name: Publish design tokens
-        run: npm publish artifacts/nova-component-design-tokens-*.tgz --access public
+        run: npm publish ./artifacts/nova-component-design-tokens-*.tgz --access public
 
       - name: Publish UI
-        run: npm publish artifacts/nova-component-ui-*.tgz --access public
+        run: npm publish ./artifacts/nova-component-ui-*.tgz --access public
