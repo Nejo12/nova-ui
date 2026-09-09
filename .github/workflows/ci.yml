@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -14,6 +17,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,14 +34,17 @@ jobs:
       - name: Build token artifacts
         run: pnpm --filter @nova/design-tokens build
 
-      - name: Upload bootstrap artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: foundation-bootstrap
-          path: |
-            pnpm-lock.yaml
-            packages/design-tokens/dist/tokens.css
-            packages/design-tokens/dist/tokens.json
+      - name: Bootstrap reproducibility artifacts
+        if: github.event_name == 'pull_request'
+        run: |
+          git add -f pnpm-lock.yaml packages/design-tokens/dist/tokens.css packages/design-tokens/dist/tokens.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: commit lockfile and generated token artifacts"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
 
       - name: Quality gates
         run: pnpm check
