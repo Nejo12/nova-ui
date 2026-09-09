@@ -6,9 +6,7 @@ describe('generated Nova token output', () => {
     expect(generated.semantic.light['color.bgInverse']).toBe('#111827');
     expect(generated.semantic.light['color.statusInfoSurface']).toBe('#eff6ff');
     expect(generated.semantic.light['color.statusDangerText']).toBe('#450a0a');
-    expect(generated.semantic.light['elevation.overlay']).toBe(
-      '0 6px 18px rgb(0 0 0 / 0.12)',
-    );
+    expect(generated.semantic.light['elevation.overlay']).toBe('0 6px 18px rgb(0 0 0 / 0.12)');
   });
 
   it('keeps generated light and dark semantic keys aligned', () => {
