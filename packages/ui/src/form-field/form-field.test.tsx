@@ -40,7 +40,7 @@ describe('FormField', () => {
       </FormField>,
     );
 
-    expect(screen.getByLabelText('Email')).toBeRequired();
+    expect(screen.getByRole('textbox', { name: 'Email' })).toBeRequired();
     expect(screen.getByText('*')).toHaveAttribute('aria-hidden', 'true');
   });
 
