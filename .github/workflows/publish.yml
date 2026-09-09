@@ -50,7 +50,19 @@ jobs:
           pnpm --filter @nova-component/ui pack --pack-destination "$GITHUB_WORKSPACE/artifacts"
 
       - name: Publish design tokens
-        run: npm publish ./artifacts/nova-component-design-tokens-*.tgz --access public
+        run: |
+          VERSION=$(node -p "require('./packages/design-tokens/package.json').version")
+          if npm view "@nova-component/design-tokens@$VERSION" version >/dev/null 2>&1; then
+            echo "@nova-component/design-tokens@$VERSION already published; skipping."
+          else
+            npm publish ./artifacts/nova-component-design-tokens-*.tgz --access public
+          fi
 
       - name: Publish UI
-        run: npm publish ./artifacts/nova-component-ui-*.tgz --access public
+        run: |
+          VERSION=$(node -p "require('./packages/ui/package.json').version")
+          if npm view "@nova-component/ui@$VERSION" version >/dev/null 2>&1; then
+            echo "@nova-component/ui@$VERSION already published; skipping."
+          else
+            npm publish ./artifacts/nova-component-ui-*.tgz --access public
+          fi
