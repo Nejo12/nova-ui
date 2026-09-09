@@ -26,5 +26,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Build token artifacts
+        run: pnpm --filter @nova/design-tokens build
+
+      - name: Upload bootstrap artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: foundation-bootstrap
+          path: |
+            pnpm-lock.yaml
+            packages/design-tokens/dist/tokens.css
+            packages/design-tokens/dist/tokens.json
+
       - name: Quality gates
         run: pnpm check
