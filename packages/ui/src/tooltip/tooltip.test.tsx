@@ -84,11 +84,7 @@ describe('Tooltip', () => {
       <>
         <span id="existing-description">Existing context</span>
         <Tooltip content="Additional context">
-          <button
-            type="button"
-            aria-describedby="existing-description"
-            onClick={onClick}
-          >
+          <button type="button" aria-describedby="existing-description" onClick={onClick}>
             Described target
           </button>
         </Tooltip>
