@@ -1,0 +1,65 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--nova-control-touch-target);
+  padding: var(--nova-space-3) var(--nova-space-5);
+  border: 1px solid transparent;
+  border-radius: var(--nova-radius-md);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    opacity var(--nova-duration-fast) var(--nova-easing-standard),
+    transform var(--nova-duration-fast) var(--nova-easing-standard);
+}
+
+.button[data-variant='primary'] {
+  border-color: var(--nova-color-action-primary);
+  background: var(--nova-color-action-primary);
+  color: var(--nova-color-action-primary-text);
+}
+
+.button[data-variant='secondary'] {
+  border-color: var(--nova-color-border-default);
+  background: var(--nova-color-action-secondary);
+  color: var(--nova-color-text-primary);
+}
+
+.button[data-variant='danger'] {
+  border-color: var(--nova-color-status-danger);
+  background: var(--nova-color-status-danger);
+  color: var(--nova-color-text-inverse);
+}
+
+.button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.button:active:not(:disabled) {
+  opacity: 0.8;
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--nova-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .button:active:not(:disabled) {
+    transform: none;
+  }
+}

@@ -1,5 +1,8 @@
 export type { NovaResolvedTheme } from '@nova/design-tokens';
 
+export { Button } from './button/button';
+export type { ButtonProps, ButtonVariant } from './button/button';
+
 export { Dialog } from './dialog/dialog';
 export type { DialogAction, DialogProps, DialogSize, DialogType } from './dialog/dialog';
 
