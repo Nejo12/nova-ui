@@ -42,10 +42,15 @@ export function Tooltip({
   className,
 }: TooltipProps) {
   const tooltipId = useId();
-  const [interaction, setInteraction] = useState<InteractionState>(INITIAL_INTERACTION);
-  const open = (interaction.hovered || interaction.focused) && !interaction.dismissed;
+  const [interaction, setInteraction] =
+    useState<InteractionState>(INITIAL_INTERACTION);
+  const open =
+    (interaction.hovered || interaction.focused) && !interaction.dismissed;
   const trigger = children as ReactElement<DescribedTriggerProps>;
-  const describedBy = [trigger.props['aria-describedby'], open ? tooltipId : undefined]
+  const describedBy = [
+    trigger.props['aria-describedby'],
+    open ? tooltipId : undefined,
+  ]
     .filter((value): value is string => Boolean(value))
     .join(' ');
   const classNames = [styles.wrapper, className].filter(Boolean).join(' ');
@@ -75,9 +80,13 @@ export function Tooltip({
   return (
     <span
       className={classNames}
-      onPointerEnter={() => updateInteraction({ hovered: true, dismissed: false })}
+      onPointerEnter={() =>
+        updateInteraction({ hovered: true, dismissed: false })
+      }
       onPointerLeave={() => updateInteraction({ hovered: false })}
-      onFocusCapture={() => updateInteraction({ focused: true, dismissed: false })}
+      onFocusCapture={() =>
+        updateInteraction({ focused: true, dismissed: false })
+      }
       onBlurCapture={handleBlur}
       onKeyDown={handleKeyDown}
     >
