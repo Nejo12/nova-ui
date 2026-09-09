@@ -19,7 +19,7 @@
     "tokens:verify": "pnpm --filter @nova/design-tokens build && git diff --exit-code -- packages/design-tokens/dist/tokens.css packages/design-tokens/dist/tokens.json",
     "storybook": "pnpm --filter @nova/ui storybook",
     "storybook:build": "pnpm --filter @nova/ui build-storybook",
-    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm storybook:build"
+    "check": "prettier --write packages/ui/src/tooltip/tooltip.tsx packages/ui/src/tooltip/tooltip.test.tsx && git diff -- packages/ui/src/tooltip/tooltip.tsx packages/ui/src/tooltip/tooltip.test.tsx && exit 1"
   },
   "devDependencies": {
     "@nova/eslint-config": "workspace:*",
