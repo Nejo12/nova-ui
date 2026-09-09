@@ -143,7 +143,9 @@ export function Popover({
             {title}
           </h2>
           <div className={styles.body}>{children}</div>
-          {action !== undefined ? <div className={styles.popoverAction}>{action}</div> : null}
+          {action !== undefined ? (
+            <div className={styles.popoverAction}>{action}</div>
+          ) : null}
         </div>
       ) : null}
     </span>
@@ -230,7 +232,8 @@ export function Menu({
     if (enabledIndices.length === 0) return;
 
     const currentPosition = enabledIndices.indexOf(activeIndex);
-    const nextPosition = (currentPosition + direction + enabledIndices.length) % enabledIndices.length;
+    const nextPosition =
+      (currentPosition + direction + enabledIndices.length) % enabledIndices.length;
     setActiveIndex(enabledIndices[nextPosition] ?? enabledIndices[0] ?? 0);
   }
 
