@@ -1,3 +1,3 @@
-import config from '@nova/stylelint-config';
-
-export default config;
+export default {
+  extends: ['@nova/stylelint-config'],
+};
