@@ -22,7 +22,7 @@ describe('InlineAlert', () => {
     },
   );
 
-  it.each<["polite" | "assertive", "status" | "alert"]>([
+  it.each<['polite' | 'assertive', 'status' | 'alert']>([
     ['polite', 'status'],
     ['assertive', 'alert'],
   ])('exposes an explicitly requested %s announcement', (announcement, role) => {
@@ -85,6 +85,8 @@ describe('InlineAlert', () => {
     );
 
     expect(screen.getByText('Aktion erforderlich')).toBeInTheDocument();
-    expect(screen.getByText('Behebe dieses Problem, bevor du es erneut versuchst.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Behebe dieses Problem, bevor du es erneut versuchst.'),
+    ).toBeInTheDocument();
   });
 });
