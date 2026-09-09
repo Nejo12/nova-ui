@@ -21,6 +21,9 @@ export type {
   SkeletonRegionProps,
 } from './skeleton/skeleton';
 
+export { Toast } from './toast/toast';
+export type { ToastAction, ToastProps, ToastTone } from './toast/toast';
+
 export { Tooltip } from './tooltip/tooltip';
 export type { TooltipPlacement, TooltipProps } from './tooltip/tooltip';
 
