@@ -85,20 +85,14 @@
 @media (width <= 40rem) {
   .tooltip[data-placement='left'],
   .tooltip[data-placement='right'] {
-    top: calc(100% + var(--nova-space-2));
-    right: auto;
-    bottom: auto;
-    left: 50%;
+    inset: calc(100% + var(--nova-space-2)) auto auto 50%;
     max-width: min(15.25rem, calc(100vw - var(--nova-space-8)));
     transform: translateX(-50%);
   }
 
   .tooltip[data-placement='left']::after,
   .tooltip[data-placement='right']::after {
-    top: auto;
-    right: auto;
-    bottom: 100%;
-    left: 50%;
+    inset: auto auto 100% 50%;
     transform: translate(-50%, 50%) rotate(45deg);
   }
 }
