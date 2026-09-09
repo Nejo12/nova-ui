@@ -36,6 +36,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           version-script: pnpm release:version
-          pr-title: "Release: version packages"
-          commit-message: "chore: version packages"
+          pr-title: 'Release: version packages'
+          commit-message: 'chore: version packages'
           create-github-releases: false
