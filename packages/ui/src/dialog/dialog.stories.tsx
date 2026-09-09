@@ -49,7 +49,8 @@ export const LongContent: Story = {
       'This intentionally long dialog demonstrates wrapping and scrolling behavior on constrained viewports without changing the component contract.',
     children: (
       <p>
-        Additional content remains consumer-owned and can contain any non-product-specific React content.
+        Additional content remains consumer-owned and can contain any non-product-specific React
+        content.
       </p>
     ),
   },
