@@ -16,10 +16,10 @@
         "900": "#111827",
         "950": "#030712"
       },
-      "green": { "600": "#16a34a", "950": "#052e16" },
-      "red": { "600": "#dc2626", "950": "#450a0a" },
-      "amber": { "500": "#f59e0b", "950": "#451a03" },
-      "blue": { "600": "#2563eb", "950": "#172554" }
+      "green": { "50": "#f0fdf4", "200": "#bbf7d0", "600": "#16a34a", "950": "#052e16" },
+      "red": { "50": "#fef2f2", "200": "#fecaca", "600": "#dc2626", "950": "#450a0a" },
+      "amber": { "50": "#fffbeb", "200": "#fde68a", "500": "#f59e0b", "950": "#451a03" },
+      "blue": { "50": "#eff6ff", "200": "#bfdbfe", "600": "#2563eb", "950": "#172554" }
     },
     "space": {
       "0": "0",
@@ -41,6 +41,11 @@
       "md": "0.625rem",
       "lg": "0.875rem",
       "pill": "9999px"
+    },
+    "shadow": {
+      "sm": "0 1px 2px rgb(0 0 0 / 0.08)",
+      "md": "0 6px 18px rgb(0 0 0 / 0.12)",
+      "lg": "0 18px 48px rgb(0 0 0 / 0.18)"
     },
     "duration": {
       "instant": "0ms",
@@ -73,19 +78,39 @@
         "bgPage": "{primitive.color.neutral.0}",
         "bgSurface": "{primitive.color.neutral.0}",
         "bgSubtle": "{primitive.color.neutral.50}",
+        "bgInverse": "{primitive.color.neutral.900}",
         "textPrimary": "{primitive.color.neutral.900}",
         "textSecondary": "{primitive.color.neutral.600}",
         "textDisabled": "{primitive.color.neutral.400}",
+        "textInverse": "{primitive.color.neutral.0}",
         "borderDefault": "{primitive.color.neutral.200}",
         "borderStrong": "{primitive.color.neutral.400}",
         "actionPrimary": "{primitive.color.neutral.900}",
         "actionPrimaryText": "{primitive.color.neutral.0}",
         "actionSecondary": "{primitive.color.neutral.100}",
         "focusRing": "{primitive.color.blue.600}",
+        "skeleton": "{primitive.color.neutral.100}",
         "statusSuccess": "{primitive.color.green.600}",
+        "statusSuccessSurface": "{primitive.color.green.50}",
+        "statusSuccessBorder": "{primitive.color.green.200}",
+        "statusSuccessText": "{primitive.color.green.950}",
         "statusDanger": "{primitive.color.red.600}",
+        "statusDangerSurface": "{primitive.color.red.50}",
+        "statusDangerBorder": "{primitive.color.red.200}",
+        "statusDangerText": "{primitive.color.red.950}",
         "statusWarning": "{primitive.color.amber.500}",
-        "statusInfo": "{primitive.color.blue.600}"
+        "statusWarningSurface": "{primitive.color.amber.50}",
+        "statusWarningBorder": "{primitive.color.amber.200}",
+        "statusWarningText": "{primitive.color.amber.950}",
+        "statusInfo": "{primitive.color.blue.600}",
+        "statusInfoSurface": "{primitive.color.blue.50}",
+        "statusInfoBorder": "{primitive.color.blue.200}",
+        "statusInfoText": "{primitive.color.blue.950}"
+      },
+      "elevation": {
+        "surface": "{primitive.shadow.sm}",
+        "overlay": "{primitive.shadow.md}",
+        "modal": "{primitive.shadow.lg}"
       }
     },
     "dark": {
@@ -93,19 +118,39 @@
         "bgPage": "{primitive.color.neutral.950}",
         "bgSurface": "{primitive.color.neutral.900}",
         "bgSubtle": "{primitive.color.neutral.800}",
+        "bgInverse": "{primitive.color.neutral.50}",
         "textPrimary": "{primitive.color.neutral.50}",
         "textSecondary": "{primitive.color.neutral.300}",
         "textDisabled": "{primitive.color.neutral.500}",
+        "textInverse": "{primitive.color.neutral.950}",
         "borderDefault": "{primitive.color.neutral.700}",
         "borderStrong": "{primitive.color.neutral.500}",
         "actionPrimary": "{primitive.color.neutral.50}",
         "actionPrimaryText": "{primitive.color.neutral.950}",
         "actionSecondary": "{primitive.color.neutral.800}",
         "focusRing": "{primitive.color.blue.600}",
+        "skeleton": "{primitive.color.neutral.800}",
         "statusSuccess": "{primitive.color.green.600}",
+        "statusSuccessSurface": "{primitive.color.green.950}",
+        "statusSuccessBorder": "{primitive.color.green.600}",
+        "statusSuccessText": "{primitive.color.green.50}",
         "statusDanger": "{primitive.color.red.600}",
+        "statusDangerSurface": "{primitive.color.red.950}",
+        "statusDangerBorder": "{primitive.color.red.600}",
+        "statusDangerText": "{primitive.color.red.50}",
         "statusWarning": "{primitive.color.amber.500}",
-        "statusInfo": "{primitive.color.blue.600}"
+        "statusWarningSurface": "{primitive.color.amber.950}",
+        "statusWarningBorder": "{primitive.color.amber.500}",
+        "statusWarningText": "{primitive.color.amber.50}",
+        "statusInfo": "{primitive.color.blue.600}",
+        "statusInfoSurface": "{primitive.color.blue.950}",
+        "statusInfoBorder": "{primitive.color.blue.600}",
+        "statusInfoText": "{primitive.color.blue.50}"
+      },
+      "elevation": {
+        "surface": "{primitive.shadow.sm}",
+        "overlay": "{primitive.shadow.md}",
+        "modal": "{primitive.shadow.lg}"
       }
     }
   }
