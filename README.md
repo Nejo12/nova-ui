@@ -7,6 +7,18 @@ Initial consumers:
 - Klinnova
 - Slotnova
 
+## Packages
+
+```bash
+pnpm add @nova-component/ui @nova-component/design-tokens
+```
+
+```ts
+import { Button } from '@nova-component/ui';
+import '@nova-component/design-tokens/tokens.css';
+import '@nova-component/ui/styles.css';
+```
+
 ## Principles
 
 - product-agnostic reusable components
@@ -31,8 +43,4 @@ tooling/
   token-build/
 ```
 
-`@nova/design-tokens` has no React dependency. `@nova/ui` depends on the token contract but not on Klinnova, Slotnova, Next.js, Vite runtime APIs, or domain services.
-
-## Status
-
-Foundation is being established before component extraction. The first extraction candidates from Klinnova are Skeleton, InlineAlert, Tooltip, Dialog, PopoverMenu, and Toast.
+`@nova-component/design-tokens` has no React dependency. `@nova-component/ui` depends on the token contract but not on Klinnova, Slotnova, Next.js, Vite runtime APIs, or domain services.
