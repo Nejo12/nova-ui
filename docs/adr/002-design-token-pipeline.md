@@ -24,7 +24,7 @@ The normalized source uses product-neutral primitive and semantic names. Runtime
 
 Resolved themes use the `data-nova-theme="light|dark"` attribute. Product applications may maintain a separate user preference such as `system`; they resolve that preference to light or dark before applying the shared theme contract.
 
-Generated artifacts must be reproducible from source and must not be edited manually.
+Generated token artifacts must be reproducible from source and must not be edited manually. The reviewable runtime token outputs `packages/design-tokens/dist/tokens.css` and `packages/design-tokens/dist/tokens.json` are checked into Git. Other compiled package output remains ignored.
 
 ## Rules
 
@@ -32,8 +32,10 @@ Generated artifacts must be reproducible from source and must not be edited manu
 - Do not use literal color values directly in reusable component styles when an appropriate semantic token exists.
 - Product-specific palettes may map into the shared semantic contract in consumer-owned theme files.
 - Token changes require review because they may affect every consumer.
+- Generated `tokens.css` and `tokens.json` must be regenerated from `src/source.json`; never hand-edit them.
+- CI must fail when committed token artifacts differ from deterministic regeneration.
 - Figma-variable synchronization must preserve traceability between design and generated code.
 
 ## Initial scope
 
-Foundation 01 establishes the normalized schema, namespace, light/dark semantic contract, generator, and Storybook consumption. Product-specific mappings and full Figma-variable synchronization are separate bounded work.
+Foundation 01 establishes the normalized schema, namespace, light/dark semantic contract, generator, checked-in runtime token artifacts, and Storybook consumption. Product-specific mappings and full Figma-variable synchronization are separate bounded work.
