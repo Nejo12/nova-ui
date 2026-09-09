@@ -1,8 +1,6 @@
 export type { NovaResolvedTheme } from '@nova/design-tokens';
 
-export {
-  InlineAlert,
-} from './inline-alert/inline-alert';
+export { InlineAlert } from './inline-alert/inline-alert';
 export type {
   InlineAlertAnnouncement,
   InlineAlertProps,
