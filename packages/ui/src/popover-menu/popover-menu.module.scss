@@ -1,0 +1,113 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.surface {
+  position: absolute;
+  top: calc(100% + var(--nova-space-2));
+  left: 0;
+  z-index: var(--nova-z-dropdown);
+  max-width: calc(100vw - var(--nova-space-8));
+  border: 1px solid var(--nova-color-border-default);
+  border-radius: var(--nova-radius-md);
+  background: var(--nova-color-bg-surface);
+  color: var(--nova-color-text-primary);
+  box-shadow: var(--nova-elevation-surface);
+}
+
+.surface[data-align='end'] {
+  right: 0;
+  left: auto;
+}
+
+.surface[data-kind='popover'] {
+  width: min(22.5rem, calc(100vw - var(--nova-space-8)));
+  padding: var(--nova-space-5);
+}
+
+.surface[data-kind='menu'] {
+  display: flex;
+  width: min(18.75rem, calc(100vw - var(--nova-space-8)));
+  padding: var(--nova-space-4);
+  flex-direction: column;
+  gap: var(--nova-space-2);
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.body {
+  margin-top: var(--nova-space-2);
+  color: var(--nova-color-text-secondary);
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.popoverAction {
+  max-width: 100%;
+  margin-top: var(--nova-space-5);
+}
+
+.menuItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--nova-space-3);
+  width: 100%;
+  min-height: var(--nova-control-touch-target);
+  padding: var(--nova-space-3);
+  border: 0;
+  border-radius: var(--nova-radius-sm);
+  background: transparent;
+  color: var(--nova-color-text-primary);
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menuItem:hover,
+.menuItem:focus-visible {
+  background: var(--nova-color-bg-subtle);
+}
+
+.menuItem:focus-visible {
+  outline: 2px solid var(--nova-color-focus-ring);
+  outline-offset: -2px;
+}
+
+.menuItem[data-tone='danger'] {
+  color: var(--nova-color-status-danger);
+}
+
+.menuItem:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.shortcut {
+  color: var(--nova-color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+@media (width <= 30rem) {
+  .surface[data-kind='popover'] {
+    padding: var(--nova-space-4);
+  }
+
+  .surface[data-kind='menu'] {
+    padding: var(--nova-space-3);
+  }
+}
