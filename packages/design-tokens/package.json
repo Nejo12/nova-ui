@@ -2,6 +2,7 @@
   "name": "@nova-component/design-tokens",
   "version": "0.1.0",
   "description": "Shared semantic design tokens for the Nova product family.",
+  "license": "MIT",
   "type": "module",
   "files": [
     "dist"
