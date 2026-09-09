@@ -40,10 +40,7 @@ describe('Tooltip', () => {
     const next = screen.getByRole('button', { name: 'Next control' });
 
     fireEvent.focus(trigger);
-    expect(screen.getByRole('tooltip')).toHaveAttribute(
-      'data-placement',
-      'bottom',
-    );
+    expect(screen.getByRole('tooltip')).toHaveAttribute('data-placement', 'bottom');
 
     fireEvent.blur(trigger, { relatedTarget: next });
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
@@ -121,13 +118,8 @@ describe('Tooltip', () => {
         </Tooltip>,
       );
 
-      fireEvent.pointerEnter(
-        screen.getByRole('button', { name: 'Placement target' }),
-      );
-      expect(screen.getByRole('tooltip')).toHaveAttribute(
-        'data-placement',
-        placement,
-      );
+      fireEvent.pointerEnter(screen.getByRole('button', { name: 'Placement target' }));
+      expect(screen.getByRole('tooltip')).toHaveAttribute('data-placement', placement);
     },
   );
 
@@ -138,11 +130,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    fireEvent.pointerEnter(
-      screen.getByRole('button', { name: 'Weitere Informationen' }),
-    );
-    expect(
-      screen.getByText('Zusätzlicher hilfreicher Kontext'),
-    ).toBeInTheDocument();
+    fireEvent.pointerEnter(screen.getByRole('button', { name: 'Weitere Informationen' }));
+    expect(screen.getByText('Zusätzlicher hilfreicher Kontext')).toBeInTheDocument();
   });
 });
