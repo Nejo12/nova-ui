@@ -1,7 +1,7 @@
 {
-  "name": "@nova/ui",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@nova-component/ui",
+  "version": "0.1.0",
+  "description": "Shared React UI primitives for the Nova product family.",
   "type": "module",
   "sideEffects": [
     "**/*.css",
@@ -17,18 +17,35 @@
     },
     "./styles.css": "./dist/nova-ui.css"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nejo12/nova-ui.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/Nejo12/nova-ui#readme",
+  "keywords": [
+    "nova",
+    "react",
+    "design-system",
+    "ui-components",
+    "accessibility"
+  ],
   "peerDependencies": {
     "react": ">=18.3.0 <20",
     "react-dom": ">=18.3.0 <20"
   },
   "dependencies": {
-    "@nova/design-tokens": "workspace:*"
+    "@nova-component/design-tokens": "workspace:*"
   },
   "scripts": {
     "build": "vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json",
-    "dev": "pnpm --filter @nova/design-tokens build && storybook dev -p 6006",
-    "storybook": "pnpm --filter @nova/design-tokens build && storybook dev -p 6006",
-    "build-storybook": "pnpm --filter @nova/design-tokens build && storybook build",
+    "prepack": "pnpm build",
+    "dev": "pnpm --filter @nova-component/design-tokens build && storybook dev -p 6006",
+    "storybook": "pnpm --filter @nova-component/design-tokens build && storybook dev -p 6006",
+    "build-storybook": "pnpm --filter @nova-component/design-tokens build && storybook build",
     "lint": "eslint src .storybook --max-warnings=0",
     "lint:styles": "stylelint 'src/**/*.{css,scss}' --allow-empty-input",
     "test": "vitest run",
