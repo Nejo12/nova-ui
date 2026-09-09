@@ -6,5 +6,6 @@
     "emitDeclarationOnly": false,
     "outDir": "dist",
     "rootDir": "src"
-  }
+  },
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.tsx", "src/test/**"]
 }
