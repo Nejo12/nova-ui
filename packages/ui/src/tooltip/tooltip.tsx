@@ -35,22 +35,12 @@ const INITIAL_INTERACTION: InteractionState = {
   dismissed: false,
 };
 
-export function Tooltip({
-  content,
-  children,
-  placement = 'top',
-  className,
-}: TooltipProps) {
+export function Tooltip({ content, children, placement = 'top', className }: TooltipProps) {
   const tooltipId = useId();
-  const [interaction, setInteraction] =
-    useState<InteractionState>(INITIAL_INTERACTION);
-  const open =
-    (interaction.hovered || interaction.focused) && !interaction.dismissed;
+  const [interaction, setInteraction] = useState<InteractionState>(INITIAL_INTERACTION);
+  const open = (interaction.hovered || interaction.focused) && !interaction.dismissed;
   const trigger = children as ReactElement<DescribedTriggerProps>;
-  const describedBy = [
-    trigger.props['aria-describedby'],
-    open ? tooltipId : undefined,
-  ]
+  const describedBy = [trigger.props['aria-describedby'], open ? tooltipId : undefined]
     .filter((value): value is string => Boolean(value))
     .join(' ');
   const classNames = [styles.wrapper, className].filter(Boolean).join(' ');
@@ -60,10 +50,7 @@ export function Tooltip({
   }
 
   function handleBlur(event: FocusEvent<HTMLSpanElement>) {
-    if (
-      event.relatedTarget instanceof Node &&
-      event.currentTarget.contains(event.relatedTarget)
-    ) {
+    if (event.relatedTarget instanceof Node && event.currentTarget.contains(event.relatedTarget)) {
       return;
     }
 
@@ -80,13 +67,9 @@ export function Tooltip({
   return (
     <span
       className={classNames}
-      onPointerEnter={() =>
-        updateInteraction({ hovered: true, dismissed: false })
-      }
+      onPointerEnter={() => updateInteraction({ hovered: true, dismissed: false })}
       onPointerLeave={() => updateInteraction({ hovered: false })}
-      onFocusCapture={() =>
-        updateInteraction({ focused: true, dismissed: false })
-      }
+      onFocusCapture={() => updateInteraction({ focused: true, dismissed: false })}
       onBlurCapture={handleBlur}
       onKeyDown={handleKeyDown}
     >
@@ -95,12 +78,7 @@ export function Tooltip({
       })}
 
       {open ? (
-        <span
-          className={styles.tooltip}
-          id={tooltipId}
-          role="tooltip"
-          data-placement={placement}
-        >
+        <span className={styles.tooltip} id={tooltipId} role="tooltip" data-placement={placement}>
           {content}
         </span>
       ) : null}
