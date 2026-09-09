@@ -15,4 +15,7 @@ export type {
   SkeletonRegionProps,
 } from './skeleton/skeleton';
 
+export { Tooltip } from './tooltip/tooltip';
+export type { TooltipPlacement, TooltipProps } from './tooltip/tooltip';
+
 export const NOVA_UI_PACKAGE = '@nova/ui' as const;
