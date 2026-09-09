@@ -1,0 +1,32 @@
+{
+  "name": "@nova/design-tokens",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "scripts": {
+    "build": "node ../../tooling/token-build/build.mjs && tsc -p tsconfig.build.json",
+    "lint": "eslint src --max-warnings=0",
+    "lint:styles": "stylelint 'dist/**/*.css' --allow-empty-input",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@nova/eslint-config": "workspace:*",
+    "@nova/stylelint-config": "workspace:*",
+    "eslint": "^10.0.0",
+    "stylelint": "^17.0.0",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.0"
+  }
+}
