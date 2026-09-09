@@ -24,6 +24,9 @@ export type {
   SkeletonRegionProps,
 } from './skeleton/skeleton';
 
+export { TextInput } from './text-input/text-input';
+export type { TextInputProps } from './text-input/text-input';
+
 export { Toast } from './toast/toast';
 export type { ToastAction, ToastProps, ToastTone } from './toast/toast';
 

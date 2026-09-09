@@ -36,11 +36,7 @@ describe('TextInput', () => {
 
   it('preserves validation and description attributes', () => {
     render(
-      <TextInput
-        aria-label="Username"
-        aria-invalid="true"
-        aria-describedby="username-error"
-      />,
+      <TextInput aria-label="Username" aria-invalid="true" aria-describedby="username-error" />,
     );
 
     const input = screen.getByRole('textbox', { name: 'Username' });
