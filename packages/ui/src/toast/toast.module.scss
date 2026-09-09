@@ -107,7 +107,7 @@
 
 .action:hover,
 .dismiss:hover {
-  background: color-mix(in srgb, currentcolor 10%, transparent);
+  background: var(--nova-color-bg-subtle);
 }
 
 .action:focus-visible,
