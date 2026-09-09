@@ -8,12 +8,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
 };
 
-export function Button({
-  variant = 'primary',
-  className,
-  type = 'button',
-  ...props
-}: ButtonProps) {
+export function Button({ variant = 'primary', className, type = 'button', ...props }: ButtonProps) {
   const classNames = [styles.button, className].filter(Boolean).join(' ');
 
   return <button {...props} className={classNames} type={type} data-variant={variant} />;
