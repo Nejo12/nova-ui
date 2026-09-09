@@ -8,6 +8,7 @@ packages/design-tokens/dist/*
 !packages/design-tokens/dist/tokens.json
 coverage/
 storybook-static/
+artifacts/
 .DS_Store
 *.log
 .env
