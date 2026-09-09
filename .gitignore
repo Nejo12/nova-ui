@@ -1,0 +1,15 @@
+node_modules/
+.pnpm-store/
+.turbo/
+dist/
+!packages/design-tokens/dist/
+packages/design-tokens/dist/*
+!packages/design-tokens/dist/tokens.css
+!packages/design-tokens/dist/tokens.json
+coverage/
+storybook-static/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
