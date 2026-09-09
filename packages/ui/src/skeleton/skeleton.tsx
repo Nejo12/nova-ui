@@ -18,9 +18,7 @@ const RADIUS_CLASS: Record<SkeletonRadius, string> = {
 };
 
 export function Skeleton({ width = '100%', height, radius = 'sm', className }: SkeletonProps) {
-  const classNames = [styles.skeleton, RADIUS_CLASS[radius], className]
-    .filter(Boolean)
-    .join(' ');
+  const classNames = [styles.skeleton, RADIUS_CLASS[radius], className].filter(Boolean).join(' ');
   const style: CSSProperties = { width, height };
 
   return <div aria-hidden="true" className={classNames} style={style} />;
