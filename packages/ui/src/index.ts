@@ -1,5 +1,13 @@
 export type { NovaResolvedTheme } from '@nova/design-tokens';
 
+export { Dialog } from './dialog/dialog';
+export type {
+  DialogAction,
+  DialogProps,
+  DialogSize,
+  DialogType,
+} from './dialog/dialog';
+
 export { InlineAlert } from './inline-alert/inline-alert';
 export type {
   InlineAlertAnnouncement,
