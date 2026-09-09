@@ -1,0 +1,133 @@
+.dialog {
+  width: min(calc(100% - (2 * var(--nova-space-4))), 26.25rem);
+  max-width: none;
+  max-height: calc(100dvh - (2 * var(--nova-space-4)));
+  margin: auto;
+  padding: var(--nova-space-6);
+  overflow: auto;
+  border: 1px solid var(--nova-color-border-default);
+  border-radius: var(--nova-radius-lg);
+  background: var(--nova-color-bg-surface);
+  color: var(--nova-color-text-primary);
+  box-shadow: var(--nova-elevation-modal);
+}
+
+.dialog[data-size='medium'] {
+  width: min(calc(100% - (2 * var(--nova-space-4))), 35rem);
+}
+
+.dialog::backdrop {
+  background: var(--nova-color-bg-inverse);
+  opacity: 0.6;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nova-space-4);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  color: var(--nova-color-text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.description,
+.destructiveDescription {
+  color: var(--nova-color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.destructiveDescription {
+  color: var(--nova-color-status-danger);
+}
+
+.destructiveContext {
+  padding: var(--nova-space-3);
+  border-radius: var(--nova-radius-md);
+  background: var(--nova-color-status-danger-surface);
+  color: var(--nova-color-status-danger-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nova-space-3);
+  margin-top: var(--nova-space-4);
+}
+
+.primaryAction,
+.destructiveAction,
+.cancelAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--nova-control-touch-target);
+  padding: var(--nova-space-3) var(--nova-space-5);
+  border-radius: var(--nova-radius-md);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  cursor: pointer;
+}
+
+.primaryAction {
+  border: 1px solid var(--nova-color-action-primary);
+  background: var(--nova-color-action-primary);
+  color: var(--nova-color-action-primary-text);
+}
+
+.cancelAction {
+  border: 1px solid var(--nova-color-border-strong);
+  background: var(--nova-color-action-secondary);
+  color: var(--nova-color-text-primary);
+}
+
+.destructiveAction {
+  border: 1px solid var(--nova-color-status-danger);
+  background: var(--nova-color-status-danger);
+  color: var(--nova-color-text-inverse);
+}
+
+.primaryAction:hover,
+.destructiveAction:hover,
+.cancelAction:hover {
+  opacity: 0.9;
+}
+
+.primaryAction:focus-visible,
+.destructiveAction:focus-visible,
+.cancelAction:focus-visible {
+  outline: 2px solid var(--nova-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.primaryAction:disabled,
+.destructiveAction:disabled,
+.cancelAction:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (width >= 40rem) {
+  .actions {
+    flex-flow: row wrap;
+    justify-content: flex-end;
+  }
+
+  .primaryAction,
+  .destructiveAction,
+  .cancelAction {
+    width: auto;
+  }
+}
