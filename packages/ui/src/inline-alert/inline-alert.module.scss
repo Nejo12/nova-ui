@@ -85,7 +85,7 @@
   margin-top: var(--nova-space-2);
 }
 
-@media (max-width: 25rem) {
+@media (width <= 25rem) {
   .alert {
     padding: var(--nova-space-3);
   }
