@@ -38,13 +38,13 @@ describe('InlineAlert', () => {
   });
 
   it('keeps visual tone separate from announcement urgency', () => {
-    const { rerender } = render(
+    const { getByRole, queryByRole, rerender } = render(
       <InlineAlert tone="error" title="Persistent error">
         This existing message is not announced again.
       </InlineAlert>,
     );
 
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(queryByRole('alert')).not.toBeInTheDocument();
 
     rerender(
       <InlineAlert tone="info" title="Urgent information" announcement="assertive">
@@ -52,7 +52,7 @@ describe('InlineAlert', () => {
       </InlineAlert>,
     );
 
-    expect(screen.getByRole('alert')).toHaveAttribute('data-tone', 'info');
+    expect(getByRole('alert')).toHaveAttribute('data-tone', 'info');
   });
 
   it('renders a consumer-provided action without invoking it', () => {
