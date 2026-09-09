@@ -143,21 +143,14 @@ export function Popover({
             {title}
           </h2>
           <div className={styles.body}>{children}</div>
-          {action !== undefined ? (
-            <div className={styles.popoverAction}>{action}</div>
-          ) : null}
+          {action !== undefined ? <div className={styles.popoverAction}>{action}</div> : null}
         </div>
       ) : null}
     </span>
   );
 }
 
-export function Menu({
-  trigger: triggerElement,
-  items,
-  align = 'start',
-  className,
-}: MenuProps) {
+export function Menu({ trigger: triggerElement, items, align = 'start', className }: MenuProps) {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const rootRef = useRef<HTMLSpanElement>(null);
