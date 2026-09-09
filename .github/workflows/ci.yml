@@ -29,8 +29,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Prettier probe
-        run: |
-          pnpm format
-          git diff -- packages/ui/src/popover-menu/popover-menu.tsx
-          git diff --exit-code
+      - name: Quality gates
+        run: pnpm check
