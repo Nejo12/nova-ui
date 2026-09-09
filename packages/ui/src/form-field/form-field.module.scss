@@ -1,0 +1,33 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nova-space-2);
+  min-width: 0;
+}
+
+.label {
+  color: var(--nova-color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+.required {
+  margin-left: var(--nova-space-1);
+  color: var(--nova-color-status-danger);
+}
+
+.description,
+.error {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.description {
+  color: var(--nova-color-text-secondary);
+}
+
+.error {
+  color: var(--nova-color-status-danger);
+}
