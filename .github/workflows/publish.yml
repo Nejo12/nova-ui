@@ -1,0 +1,56 @@
+name: Publish packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the prepared package tarballs to npm
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    if: ${{ inputs.publish }}
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.20.0
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify repository
+        run: pnpm check
+
+      - name: Pack publishable packages
+        run: |
+          mkdir -p artifacts
+          pnpm --filter @nova-component/design-tokens pack --pack-destination "$GITHUB_WORKSPACE/artifacts"
+          pnpm --filter @nova-component/ui pack --pack-destination "$GITHUB_WORKSPACE/artifacts"
+
+      - name: Publish design tokens
+        run: npm publish artifacts/nova-component-design-tokens-*.tgz --access public
+
+      - name: Publish UI
+        run: npm publish artifacts/nova-component-ui-*.tgz --access public
