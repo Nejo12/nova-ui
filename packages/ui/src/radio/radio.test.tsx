@@ -7,13 +7,7 @@ afterEach(() => cleanup());
 
 describe('Radio', () => {
   it('renders an accessible radio with its label', () => {
-    render(
-      <Radio
-        label="Conversational"
-        name="germanRequirement"
-        value="conversational"
-      />,
-    );
+    render(<Radio label="Conversational" name="germanRequirement" value="conversational" />);
 
     expect(screen.getByRole('radio', { name: 'Conversational' })).not.toBeChecked();
   });
@@ -38,14 +32,7 @@ describe('Radio', () => {
 
   it('forwards change handlers when an unchecked radio becomes checked', () => {
     const onChange = vi.fn();
-    render(
-      <Radio
-        label="Basic"
-        name="germanRequirement"
-        value="basic"
-        onChange={onChange}
-      />,
-    );
+    render(<Radio label="Basic" name="germanRequirement" value="basic" onChange={onChange} />);
 
     const radio = screen.getByRole('radio', { name: 'Basic' });
     expect(radio).not.toBeChecked();
@@ -57,17 +44,10 @@ describe('Radio', () => {
   });
 
   it('supports description content', () => {
-    render(
-      <Radio
-        label="Basic"
-        description="Suitable for simple workplace communication."
-      />,
-    );
+    render(<Radio label="Basic" description="Suitable for simple workplace communication." />);
 
     expect(screen.getByRole('radio', { name: /Basic/ })).toBeInTheDocument();
-    expect(
-      screen.getByText('Suitable for simple workplace communication.'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Suitable for simple workplace communication.')).toBeInTheDocument();
   });
 
   it('preserves native disabled semantics', () => {
