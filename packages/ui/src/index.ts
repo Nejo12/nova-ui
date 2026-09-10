@@ -1,5 +1,8 @@
 export type { NovaResolvedTheme } from '@nova-component/design-tokens';
 
+export { Badge } from './badge/badge';
+export type { BadgeProps, BadgeTone } from './badge/badge';
+
 export { Button } from './button/button';
 export type { ButtonProps, ButtonVariant } from './button/button';
 
