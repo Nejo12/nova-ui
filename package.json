@@ -13,7 +13,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --max-warnings=0",
-    "lint:styles": "stylelint \"**/*.{css,scss}\" --ignore-pattern \"**/dist/**\" --ignore-pattern \"**/storybook-static/**\" --allow-empty-input",
+    "lint:styles": "stylelint \"**/*.{css,scss}\" --ignore-pattern \"**/dist/**\" --ignore-pattern \"**/storybook-static/**\" --ignore-pattern \"**/coverage/**\" --allow-empty-input",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "tokens:verify": "pnpm --filter @nova-component/design-tokens build && git diff --exit-code -- packages/design-tokens/dist/tokens.css packages/design-tokens/dist/tokens.json",
