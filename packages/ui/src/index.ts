@@ -22,6 +22,9 @@ export type {
 export { Menu, Popover } from './popover-menu/popover-menu';
 export type { MenuItem, MenuProps, OverlayAlign, PopoverProps } from './popover-menu/popover-menu';
 
+export { Select } from './select/select';
+export type { SelectProps } from './select/select';
+
 export { DelayedReveal, Skeleton, SkeletonRegion } from './skeleton/skeleton';
 export type {
   DelayedRevealProps,
