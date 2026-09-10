@@ -31,6 +31,9 @@ export type {
 export { Menu, Popover } from './popover-menu/popover-menu';
 export type { MenuItem, MenuProps, OverlayAlign, PopoverProps } from './popover-menu/popover-menu';
 
+export { Progress } from './progress/progress';
+export type { ProgressProps } from './progress/progress';
+
 export { Radio } from './radio/radio';
 export type { RadioProps } from './radio/radio';
 
