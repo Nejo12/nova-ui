@@ -17,12 +17,13 @@
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "tokens:verify": "pnpm --filter @nova-component/design-tokens build && git diff --exit-code -- packages/design-tokens/dist/tokens.css packages/design-tokens/dist/tokens.json",
+    "package:verify": "node tooling/package-verify/verify.mjs",
     "storybook": "pnpm --filter @nova-component/ui storybook",
     "storybook:build": "pnpm --filter @nova-component/ui build-storybook",
     "changeset": "changeset",
     "release:status": "changeset status --since=main",
     "release:version": "changeset version",
-    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm storybook:build"
+    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm package:verify && pnpm storybook:build"
   },
   "devDependencies": {
     "@changesets/changelog-github": "1.0.1",
