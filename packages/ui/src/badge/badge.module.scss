@@ -1,0 +1,39 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--nova-control-height-sm);
+  padding: 0 var(--nova-space-2);
+  border: 1px solid var(--nova-color-border-default);
+  border-radius: var(--nova-radius-pill);
+  background: var(--nova-color-bg-subtle);
+  color: var(--nova-color-text-primary);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  white-space: nowrap;
+}
+
+.badge[data-tone='info'] {
+  border-color: var(--nova-color-status-info-border);
+  background: var(--nova-color-status-info-surface);
+  color: var(--nova-color-status-info-text);
+}
+
+.badge[data-tone='success'] {
+  border-color: var(--nova-color-status-success-border);
+  background: var(--nova-color-status-success-surface);
+  color: var(--nova-color-status-success-text);
+}
+
+.badge[data-tone='warning'] {
+  border-color: var(--nova-color-status-warning-border);
+  background: var(--nova-color-status-warning-surface);
+  color: var(--nova-color-status-warning-text);
+}
+
+.badge[data-tone='danger'] {
+  border-color: var(--nova-color-status-danger-border);
+  background: var(--nova-color-status-danger-surface);
+  color: var(--nova-color-status-danger-text);
+}
