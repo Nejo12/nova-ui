@@ -9,12 +9,7 @@ export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
   tone?: BadgeTone;
 };
 
-export function Badge({
-  children,
-  tone = 'neutral',
-  className,
-  ...props
-}: BadgeProps) {
+export function Badge({ children, tone = 'neutral', className, ...props }: BadgeProps) {
   const classNames = [styles.badge, className].filter(Boolean).join(' ');
 
   return (
