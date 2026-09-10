@@ -1,0 +1,14 @@
+.progress {
+  width: 100%;
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: var(--nova-radius-pill);
+  background: var(--nova-color-bg-subtle);
+}
+
+.indicator {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--nova-color-action-primary);
+}
