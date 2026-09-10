@@ -12,8 +12,7 @@ describe('Radio', () => {
     expect(screen.getByRole('radio', { name: 'Conversational' })).not.toBeChecked();
   });
 
-  it('forwards native radio props and change handlers', () => {
-    const onChange = vi.fn();
+  it('forwards native radio props', () => {
     render(
       <Radio
         label="Comfortable"
@@ -21,7 +20,6 @@ describe('Radio', () => {
         value="comfortable"
         defaultChecked
         required
-        onChange={onChange}
       />,
     );
 
@@ -30,8 +28,25 @@ describe('Radio', () => {
     expect(radio).toHaveAttribute('name', 'germanRequirement');
     expect(radio).toHaveAttribute('value', 'comfortable');
     expect(radio).toBeRequired();
+  });
+
+  it('forwards change handlers when an unchecked radio becomes checked', () => {
+    const onChange = vi.fn();
+    render(
+      <Radio
+        label="Basic"
+        name="germanRequirement"
+        value="basic"
+        onChange={onChange}
+      />,
+    );
+
+    const radio = screen.getByRole('radio', { name: 'Basic' });
+    expect(radio).not.toBeChecked();
 
     fireEvent.click(radio);
+
+    expect(radio).toBeChecked();
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
