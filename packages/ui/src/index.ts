@@ -12,6 +12,9 @@ export type { CheckboxProps } from './checkbox/checkbox';
 export { Dialog } from './dialog/dialog';
 export type { DialogAction, DialogProps, DialogSize, DialogType } from './dialog/dialog';
 
+export { EmptyState } from './empty-state/empty-state';
+export type { EmptyStateHeadingLevel, EmptyStateProps } from './empty-state/empty-state';
+
 export { FormField } from './form-field/form-field';
 export type { FormFieldProps } from './form-field/form-field';
 
