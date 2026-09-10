@@ -33,6 +33,9 @@ export type {
   SkeletonRegionProps,
 } from './skeleton/skeleton';
 
+export { Textarea } from './textarea/textarea';
+export type { TextareaProps } from './textarea/textarea';
+
 export { TextInput } from './text-input/text-input';
 export type { TextInputProps } from './text-input/text-input';
 
