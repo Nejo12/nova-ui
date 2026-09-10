@@ -1,0 +1,14 @@
+.card {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--nova-space-5);
+  border: 1px solid var(--nova-color-border-default);
+  border-radius: var(--nova-radius-lg);
+  background: var(--nova-color-bg-surface);
+  color: var(--nova-color-text-primary);
+  overflow-wrap: anywhere;
+}
+
+.card[data-variant='elevated'] {
+  box-shadow: var(--nova-elevation-surface);
+}
