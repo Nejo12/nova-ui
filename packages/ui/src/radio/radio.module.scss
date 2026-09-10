@@ -1,0 +1,46 @@
+.root {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--nova-space-3);
+  color: var(--nova-color-text-primary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.input {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.125rem 0 0;
+  flex: 0 0 auto;
+  accent-color: var(--nova-color-action-primary);
+  cursor: pointer;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--nova-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.root:has(.input:disabled) {
+  color: var(--nova-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.content {
+  display: grid;
+  gap: var(--nova-space-1);
+}
+
+.label {
+  line-height: 1.5rem;
+}
+
+.description {
+  color: var(--nova-color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
