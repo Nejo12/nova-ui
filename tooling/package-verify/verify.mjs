@@ -2,6 +2,8 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { stdout } from 'node:process';
+import { URL } from 'node:url';
 
 const repoRoot = new URL('../../', import.meta.url);
 const uiManifest = JSON.parse(
@@ -101,7 +103,7 @@ try {
       }
     }
 
-    console.log(`Verified ${pkg.manifest.name}@${pkg.manifest.version}`);
+    stdout.write(`Verified ${pkg.manifest.name}@${pkg.manifest.version}\n`);
   }
 } finally {
   rmSync(outputDir, { recursive: true, force: true });
