@@ -49,7 +49,9 @@ try {
 
     const prefix = pkg.manifest.name.replace('@', '').replace('/', '-');
     const tarball = readdirSync(outputDir).find(
-      (file) => file.startsWith(`${prefix}-${pkg.manifest.version}`) && file.endsWith('.tgz'),
+      (file) =>
+        file.startsWith(`${prefix}-${pkg.manifest.version}`) &&
+        file.endsWith('.tgz'),
     );
 
     if (!tarball) {
@@ -59,13 +61,17 @@ try {
     }
 
     const tarballPath = join(outputDir, tarball);
-    const fileList = execFileSync('tar', ['-tzf', tarballPath], { encoding: 'utf8' })
+    const fileList = execFileSync('tar', ['-tzf', tarballPath], {
+      encoding: 'utf8',
+    })
       .trim()
       .split('\n');
 
     for (const requiredFile of pkg.requiredFiles) {
       if (!fileList.includes(requiredFile)) {
-        throw new Error(`${pkg.manifest.name} tarball is missing ${requiredFile}`);
+        throw new Error(
+          `${pkg.manifest.name} tarball is missing ${requiredFile}`,
+        );
       }
     }
 
@@ -75,20 +81,31 @@ try {
       }),
     );
 
-    if (packedManifest.name !== pkg.manifest.name || packedManifest.version !== pkg.manifest.version) {
-      throw new Error(`Packed manifest identity mismatch for ${pkg.manifest.name}`);
+    if (
+      packedManifest.name !== pkg.manifest.name ||
+      packedManifest.version !== pkg.manifest.version
+    ) {
+      throw new Error(
+        `Packed manifest identity mismatch for ${pkg.manifest.name}`,
+      );
     }
 
     if (packedManifest.license !== 'MIT') {
-      throw new Error(`${pkg.manifest.name} packed manifest must declare MIT`);
+      throw new Error(
+        `${pkg.manifest.name} packed manifest must declare MIT`,
+      );
     }
 
     if (JSON.stringify(packedManifest).includes('workspace:')) {
-      throw new Error(`${pkg.manifest.name} packed manifest still contains a workspace protocol`);
+      throw new Error(
+        `${pkg.manifest.name} packed manifest still contains a workspace protocol`,
+      );
     }
 
     if (pkg.manifest.name === '@nova-component/ui') {
-      const packedTokensVersion = packedManifest.dependencies?.['@nova-component/design-tokens'];
+      const packedTokensVersion =
+        packedManifest.dependencies?.['@nova-component/design-tokens'];
+
       if (packedTokensVersion !== tokensManifest.version) {
         throw new Error(
           `UI tarball must depend on @nova-component/design-tokens@${tokensManifest.version}; received ${packedTokensVersion}`,
