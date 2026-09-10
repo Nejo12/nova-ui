@@ -41,17 +41,14 @@ const outputDir = mkdtempSync(join(tmpdir(), 'nova-ui-pack-'));
 
 try {
   for (const pkg of packages) {
-    execFileSync(
-      'pnpm',
-      ['--filter', pkg.filter, 'pack', '--pack-destination', outputDir],
-      { cwd: repoRoot, stdio: 'inherit' },
-    );
+    execFileSync('pnpm', ['--filter', pkg.filter, 'pack', '--pack-destination', outputDir], {
+      cwd: repoRoot,
+      stdio: 'inherit',
+    });
 
     const prefix = pkg.manifest.name.replace('@', '').replace('/', '-');
     const tarball = readdirSync(outputDir).find(
-      (file) =>
-        file.startsWith(`${prefix}-${pkg.manifest.version}`) &&
-        file.endsWith('.tgz'),
+      (file) => file.startsWith(`${prefix}-${pkg.manifest.version}`) && file.endsWith('.tgz'),
     );
 
     if (!tarball) {
@@ -69,9 +66,7 @@ try {
 
     for (const requiredFile of pkg.requiredFiles) {
       if (!fileList.includes(requiredFile)) {
-        throw new Error(
-          `${pkg.manifest.name} tarball is missing ${requiredFile}`,
-        );
+        throw new Error(`${pkg.manifest.name} tarball is missing ${requiredFile}`);
       }
     }
 
@@ -85,26 +80,19 @@ try {
       packedManifest.name !== pkg.manifest.name ||
       packedManifest.version !== pkg.manifest.version
     ) {
-      throw new Error(
-        `Packed manifest identity mismatch for ${pkg.manifest.name}`,
-      );
+      throw new Error(`Packed manifest identity mismatch for ${pkg.manifest.name}`);
     }
 
     if (packedManifest.license !== 'MIT') {
-      throw new Error(
-        `${pkg.manifest.name} packed manifest must declare MIT`,
-      );
+      throw new Error(`${pkg.manifest.name} packed manifest must declare MIT`);
     }
 
     if (JSON.stringify(packedManifest).includes('workspace:')) {
-      throw new Error(
-        `${pkg.manifest.name} packed manifest still contains a workspace protocol`,
-      );
+      throw new Error(`${pkg.manifest.name} packed manifest still contains a workspace protocol`);
     }
 
     if (pkg.manifest.name === '@nova-component/ui') {
-      const packedTokensVersion =
-        packedManifest.dependencies?.['@nova-component/design-tokens'];
+      const packedTokensVersion = packedManifest.dependencies?.['@nova-component/design-tokens'];
 
       if (packedTokensVersion !== tokensManifest.version) {
         throw new Error(
