@@ -60,4 +60,7 @@ export type { ToastAction, ToastProps, ToastTone } from './toast/toast';
 export { Tooltip } from './tooltip/tooltip';
 export type { TooltipPlacement, TooltipProps } from './tooltip/tooltip';
 
+export { VisuallyHidden } from './visually-hidden/visually-hidden';
+export type { VisuallyHiddenProps } from './visually-hidden/visually-hidden';
+
 export const NOVA_UI_PACKAGE = '@nova-component/ui' as const;
