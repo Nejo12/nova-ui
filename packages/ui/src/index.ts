@@ -6,6 +6,9 @@ export type { BadgeProps, BadgeTone } from './badge/badge';
 export { Button } from './button/button';
 export type { ButtonProps, ButtonVariant } from './button/button';
 
+export { Card } from './card/card';
+export type { CardProps, CardVariant } from './card/card';
+
 export { Checkbox } from './checkbox/checkbox';
 export type { CheckboxProps } from './checkbox/checkbox';
 
