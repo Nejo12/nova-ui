@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { NOVA_UI_PACKAGE, VisuallyHidden } from './index';
+import { Fieldset, NOVA_UI_PACKAGE, VisuallyHidden } from './index';
 
 describe('@nova-component/ui public entrypoint', () => {
   it('exposes the package marker', () => {
@@ -8,5 +8,9 @@ describe('@nova-component/ui public entrypoint', () => {
 
   it('exports VisuallyHidden from the public entrypoint', () => {
     expect(VisuallyHidden).toBeTypeOf('function');
+  });
+
+  it('exports Fieldset from the public entrypoint', () => {
+    expect(Fieldset).toBeTypeOf('function');
   });
 });

@@ -18,6 +18,9 @@ export type { DialogAction, DialogProps, DialogSize, DialogType } from './dialog
 export { EmptyState } from './empty-state/empty-state';
 export type { EmptyStateHeadingLevel, EmptyStateProps } from './empty-state/empty-state';
 
+export { Fieldset } from './fieldset/fieldset';
+export type { FieldsetProps } from './fieldset/fieldset';
+
 export { FormField } from './form-field/form-field';
 export type { FormFieldProps } from './form-field/form-field';
 
