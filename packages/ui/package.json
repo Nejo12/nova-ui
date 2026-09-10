@@ -1,6 +1,6 @@
 {
   "name": "@nova-component/ui",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Shared React UI primitives for the Nova product family.",
   "license": "MIT",
   "type": "module",
