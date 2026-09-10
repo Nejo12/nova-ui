@@ -3,6 +3,9 @@ export type { NovaResolvedTheme } from '@nova-component/design-tokens';
 export { Button } from './button/button';
 export type { ButtonProps, ButtonVariant } from './button/button';
 
+export { Checkbox } from './checkbox/checkbox';
+export type { CheckboxProps } from './checkbox/checkbox';
+
 export { Dialog } from './dialog/dialog';
 export type { DialogAction, DialogProps, DialogSize, DialogType } from './dialog/dialog';
 
