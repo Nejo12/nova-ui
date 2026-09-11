@@ -1,5 +1,15 @@
 # @nova-component/ui
 
+## 0.3.0
+
+### Minor Changes
+
+- [#40](https://github.com/Nejo12/nova-ui/pull/40) [`2fce5a3`](https://github.com/Nejo12/nova-ui/commit/2fce5a30e5c872d5c13cf36c3fabf993426339ff) Thanks [@Nejo12](https://github.com/Nejo12)! - Add a native Fieldset primitive with required legend content, optional associated supporting content, native disabled semantics, tests, Storybook coverage, and public package export.
+
+- [#39](https://github.com/Nejo12/nova-ui/pull/39) [`c0c4072`](https://github.com/Nejo12/nova-ui/commit/c0c4072ec90b1c45ff33b5670a02c93426d1cdfc) Thanks [@Nejo12](https://github.com/Nejo12)! - Add a VisuallyHidden accessibility primitive that keeps assistive text in the document and accessibility tree while removing it from the visual layout.
+
+- [#37](https://github.com/Nejo12/nova-ui/pull/37) [`ae0c749`](https://github.com/Nejo12/nova-ui/commit/ae0c7496ffdc25c29afce61e514674ff1c724bf2) Thanks [@Nejo12](https://github.com/Nejo12)! - Add an accessible continuous Progress primitive with custom value bounds, safe visual normalization and clamping, token-based styling, tests, Storybook coverage, and public package export.
+
 ## 0.2.0
 
 ### Minor Changes
