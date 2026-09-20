@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Fieldset, Icon, NOVA_UI_PACKAGE, VisuallyHidden } from './index';
+import { Fieldset, Icon, IconButton, NOVA_UI_PACKAGE, VisuallyHidden } from './index';
 
 describe('@nova-component/ui public entrypoint', () => {
   it('exposes the package marker', () => {
@@ -16,5 +16,9 @@ describe('@nova-component/ui public entrypoint', () => {
 
   it('exports Icon from the public entrypoint', () => {
     expect(Icon).toBeTypeOf('function');
+  });
+
+  it('exports IconButton from the public entrypoint', () => {
+    expect(IconButton).toBeTypeOf('function');
   });
 });
