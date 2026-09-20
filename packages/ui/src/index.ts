@@ -21,6 +21,9 @@ export type { EmptyStateHeadingLevel, EmptyStateProps } from './empty-state/empt
 export { Fieldset } from './fieldset/fieldset';
 export type { FieldsetProps } from './fieldset/fieldset';
 
+export { Icon } from './icon/icon';
+export type { IconName, IconProps, IconSize, IconTone } from './icon/icon';
+
 export { FormField } from './form-field/form-field';
 export type { FormFieldProps } from './form-field/form-field';
 
