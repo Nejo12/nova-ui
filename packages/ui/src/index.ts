@@ -1,5 +1,8 @@
 export type { NovaResolvedTheme } from '@nova-component/design-tokens';
 
+export { Avatar } from './avatar/avatar';
+export type { AvatarProps, AvatarSize } from './avatar/avatar';
+
 export { Badge } from './badge/badge';
 export type { BadgeProps, BadgeTone } from './badge/badge';
 
