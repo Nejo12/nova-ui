@@ -1,0 +1,26 @@
+.icon {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+  color: var(--nova-color-text-primary);
+}
+
+.icon[data-tone='muted'] {
+  color: var(--nova-color-text-secondary);
+}
+
+.icon[data-tone='info'] {
+  color: var(--nova-color-status-info);
+}
+
+.icon[data-tone='success'] {
+  color: var(--nova-color-status-success);
+}
+
+.icon[data-tone='warning'] {
+  color: var(--nova-color-status-warning);
+}
+
+.icon[data-tone='danger'] {
+  color: var(--nova-color-status-danger);
+}

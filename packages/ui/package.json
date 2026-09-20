@@ -39,7 +39,8 @@
     "react-dom": ">=18.3.0 <20"
   },
   "dependencies": {
-    "@nova-component/design-tokens": "workspace:*"
+    "@nova-component/design-tokens": "workspace:*",
+    "lucide-react": "^1.47.0"
   },
   "scripts": {
     "build": "vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json",
