@@ -24,6 +24,9 @@ export type { FieldsetProps } from './fieldset/fieldset';
 export { Icon } from './icon/icon';
 export type { IconName, IconProps, IconSize, IconTone } from './icon/icon';
 
+export { IconButton } from './icon-button/icon-button';
+export type { IconButtonProps, IconButtonSize } from './icon-button/icon-button';
+
 export { FormField } from './form-field/form-field';
 export type { FormFieldProps } from './form-field/form-field';
 

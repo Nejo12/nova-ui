@@ -1,0 +1,44 @@
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--nova-control-touch-target);
+  height: var(--nova-control-touch-target);
+  padding: 0;
+  border: 0;
+  border-radius: var(--nova-radius-md);
+  background: transparent;
+  color: var(--nova-color-text-primary);
+  cursor: pointer;
+  transition: background var(--nova-duration-fast) var(--nova-easing-standard);
+}
+
+.iconButton[data-size='medium'] {
+  width: var(--nova-control-height-lg);
+  height: var(--nova-control-height-lg);
+}
+
+.iconButton[data-size='large'] {
+  width: calc(var(--nova-control-touch-target) + var(--nova-space-2));
+  height: calc(var(--nova-control-touch-target) + var(--nova-space-2));
+}
+
+.iconButton:hover:not(:disabled) {
+  background: var(--nova-color-bg-subtle);
+}
+
+.iconButton:focus-visible {
+  outline: 3px solid var(--nova-color-focus-ring);
+  outline-offset: 0;
+}
+
+.iconButton:disabled {
+  color: var(--nova-color-text-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iconButton {
+    transition: none;
+  }
+}
