@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   Avatar,
+  getBottomNavigationItemClassName,
   Fieldset,
   getNavigationItemClassName,
   Icon,
@@ -32,6 +33,10 @@ describe('@nova-component/ui public entrypoint', () => {
 
   it('exports IconButton from the public entrypoint', () => {
     expect(IconButton).toBeTypeOf('function');
+  });
+
+  it('exports getBottomNavigationItemClassName from the public entrypoint', () => {
+    expect(getBottomNavigationItemClassName).toBeTypeOf('function');
   });
 
   it('exports getNavigationItemClassName from the public entrypoint', () => {

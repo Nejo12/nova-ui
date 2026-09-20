@@ -30,6 +30,9 @@ export type { IconName, IconProps, IconSize, IconTone } from './icon/icon';
 export { IconButton } from './icon-button/icon-button';
 export type { IconButtonProps, IconButtonSize } from './icon-button/icon-button';
 
+export { getBottomNavigationItemClassName } from './bottom-navigation-item/bottom-navigation-item';
+export type { BottomNavigationItemClassNameOptions } from './bottom-navigation-item/bottom-navigation-item';
+
 export { getNavigationItemClassName } from './navigation-item/navigation-item';
 export type { NavigationItemClassNameOptions } from './navigation-item/navigation-item';
 
