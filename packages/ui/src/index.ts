@@ -30,6 +30,9 @@ export type { IconName, IconProps, IconSize, IconTone } from './icon/icon';
 export { IconButton } from './icon-button/icon-button';
 export type { IconButtonProps, IconButtonSize } from './icon-button/icon-button';
 
+export { getNavigationItemClassName } from './navigation-item/navigation-item';
+export type { NavigationItemClassNameOptions } from './navigation-item/navigation-item';
+
 export { FormField } from './form-field/form-field';
 export type { FormFieldProps } from './form-field/form-field';
 

@@ -1,0 +1,49 @@
+.navigationItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--nova-control-touch-target);
+  padding: var(--nova-space-2) var(--nova-space-3);
+  border-radius: var(--nova-radius-md);
+  color: var(--nova-color-text-secondary);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  text-decoration: none;
+  transition:
+    background var(--nova-duration-fast) var(--nova-easing-standard),
+    color var(--nova-duration-fast) var(--nova-easing-standard);
+}
+
+.navigationItem:hover {
+  background: var(--nova-color-bg-subtle);
+  color: var(--nova-color-text-primary);
+}
+
+.navigationItem:focus-visible {
+  outline: 2px solid var(--nova-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.current {
+  background: var(--nova-color-action-secondary);
+  color: var(--nova-color-text-primary);
+}
+
+.current::before {
+  position: absolute;
+  top: var(--nova-space-2);
+  bottom: var(--nova-space-2);
+  left: 0;
+  width: 0.1875rem;
+  border-radius: var(--nova-radius-sm);
+  background: var(--nova-color-action-primary);
+  content: '';
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigationItem {
+    transition: none;
+  }
+}

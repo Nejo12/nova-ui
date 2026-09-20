@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { Avatar, Fieldset, Icon, IconButton, NOVA_UI_PACKAGE, VisuallyHidden } from './index';
+import {
+  Avatar,
+  Fieldset,
+  getNavigationItemClassName,
+  Icon,
+  IconButton,
+  NOVA_UI_PACKAGE,
+  VisuallyHidden,
+} from './index';
 
 describe('@nova-component/ui public entrypoint', () => {
   it('exposes the package marker', () => {
@@ -24,5 +32,9 @@ describe('@nova-component/ui public entrypoint', () => {
 
   it('exports IconButton from the public entrypoint', () => {
     expect(IconButton).toBeTypeOf('function');
+  });
+
+  it('exports getNavigationItemClassName from the public entrypoint', () => {
+    expect(getNavigationItemClassName).toBeTypeOf('function');
   });
 });
