@@ -1,0 +1,88 @@
+.field {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  min-height: var(--nova-control-height-lg);
+  padding: var(--nova-space-3) calc(var(--nova-control-touch-target) + var(--nova-space-2));
+  border: 1px solid var(--nova-color-border-default);
+  border-radius: var(--nova-radius-md);
+  background-color: var(--nova-color-bg-surface);
+  color: var(--nova-color-text-primary);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.input[data-size='small'] {
+  min-height: var(--nova-control-touch-target);
+}
+
+.input::placeholder {
+  color: var(--nova-color-text-secondary);
+}
+
+.input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--nova-color-border-strong);
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--nova-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--nova-color-status-danger);
+}
+
+.input:disabled {
+  background-color: var(--nova-color-bg-subtle);
+  color: var(--nova-color-text-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: var(--nova-space-4);
+  z-index: var(--nova-z-base);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.clearButton {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--nova-control-touch-target);
+  height: var(--nova-control-touch-target);
+  padding: 0;
+  border: 0;
+  border-radius: var(--nova-radius-md);
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.clearButton:hover:not(:disabled) {
+  background-color: var(--nova-color-bg-subtle);
+}
+
+.clearButton:focus-visible {
+  outline: 2px solid var(--nova-color-focus-ring);
+  outline-offset: -2px;
+}
+
+.clearButton:disabled {
+  cursor: not-allowed;
+}

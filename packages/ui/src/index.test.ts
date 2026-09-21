@@ -7,6 +7,7 @@ import {
   Icon,
   IconButton,
   NOVA_UI_PACKAGE,
+  SearchInput,
   VisuallyHidden,
 } from './index';
 
@@ -33,6 +34,10 @@ describe('@nova-component/ui public entrypoint', () => {
 
   it('exports IconButton from the public entrypoint', () => {
     expect(IconButton).toBeTypeOf('function');
+  });
+
+  it('exports SearchInput from the public entrypoint', () => {
+    expect(SearchInput).toBeTypeOf('function');
   });
 
   it('exports getBottomNavigationItemClassName from the public entrypoint', () => {
