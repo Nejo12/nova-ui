@@ -72,6 +72,13 @@ export type { TextareaProps } from './textarea/textarea';
 export { TextInput } from './text-input/text-input';
 export type { TextInputProps } from './text-input/text-input';
 
+export { SearchInput } from './search-input/search-input';
+export type {
+  SearchInputClearAction,
+  SearchInputProps,
+  SearchInputSize,
+} from './search-input/search-input';
+
 export { Toast } from './toast/toast';
 export type { ToastAction, ToastProps, ToastTone } from './toast/toast';
 
