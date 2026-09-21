@@ -1,5 +1,21 @@
 # @nova-component/ui
 
+## 0.4.0
+
+### Minor Changes
+
+- [#59](https://github.com/Nejo12/nova-ui/pull/59) [`747e146`](https://github.com/Nejo12/nova-ui/commit/747e146f23990620cb75aee1bd4c9623dfb03acb) Thanks [@Nejo12](https://github.com/Nejo12)! - Add the SearchInput primitive for native search field presentation.
+
+- [#56](https://github.com/Nejo12/nova-ui/pull/56) [`5c34a4c`](https://github.com/Nejo12/nova-ui/commit/5c34a4c65a9b0c447473e60893a26bf6e5eb8ed2) Thanks [@Nejo12](https://github.com/Nejo12)! - Add an initials-only Avatar primitive with semantic token styling, accessible-name support, tests, Storybook examples, and public package exports.
+
+- [#55](https://github.com/Nejo12/nova-ui/pull/55) [`1f8cdef`](https://github.com/Nejo12/nova-ui/commit/1f8cdef395b854a81c0729d6b2b71cba95b9408d) Thanks [@Nejo12](https://github.com/Nejo12)! - Add an accessible IconButton primitive with Nova Icon composition, small, medium, and large sizes, native button semantics, and Storybook coverage.
+
+- [#57](https://github.com/Nejo12/nova-ui/pull/57) [`f79273f`](https://github.com/Nejo12/nova-ui/commit/f79273fc37dc0dc2a69eb4e831609409e1593076) Thanks [@Nejo12](https://github.com/Nejo12)! - Add a router-agnostic navigation-item styling helper for consumer-owned links.
+
+- [#58](https://github.com/Nejo12/nova-ui/pull/58) [`3151083`](https://github.com/Nejo12/nova-ui/commit/31510830aeecaa6438aea4e3c5a0691ac5de8d02) Thanks [@Nejo12](https://github.com/Nejo12)! - Add a router-agnostic bottom-navigation-item styling helper for consumer-owned links.
+
+- [#52](https://github.com/Nejo12/nova-ui/pull/52) [`27e1a0b`](https://github.com/Nejo12/nova-ui/commit/27e1a0bac02df787bdb2490ebad81bcb65231fca) Thanks [@Nejo12](https://github.com/Nejo12)! - Add a reusable, Lucide-backed Icon foundation with a small semantic icon set, semantic tones, supported sizes, Storybook examples, and public package exports.
+
 ## 0.3.0
 
 ### Minor Changes
