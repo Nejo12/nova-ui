@@ -8,7 +8,7 @@ const meta = {
   component: InlineLoading,
   args: {
     state: 'loading',
-    size: 'medium',
+    size: 'small',
     text: 'Saving changes',
   },
   parameters: {

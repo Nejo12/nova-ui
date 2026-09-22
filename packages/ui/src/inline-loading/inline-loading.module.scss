@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   min-width: 0;
-  color: var(--nova-color-text-secondary);
+  color: var(--nova-color-text-primary);
 }
 
 .inlineLoading[data-size='small'] {
@@ -15,8 +15,8 @@
 .inlineLoading[data-size='medium'] {
   gap: 0.625rem;
   min-height: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .indicator {
@@ -32,7 +32,15 @@
   color: var(--nova-color-status-success);
 }
 
+.inlineLoading[data-state='success'] {
+  color: var(--nova-color-status-success);
+}
+
 .inlineLoading[data-state='error'] .indicator {
+  color: var(--nova-color-status-danger);
+}
+
+.inlineLoading[data-state='error'] {
   color: var(--nova-color-status-danger);
 }
 

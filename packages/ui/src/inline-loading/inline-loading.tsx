@@ -23,7 +23,7 @@ const STATE_GLYPHS: Record<Exclude<InlineLoadingState, 'loading'>, string> = {
 
 export function InlineLoading({
   state = 'loading',
-  size = 'medium',
+  size = 'small',
   text,
   className,
   ...props

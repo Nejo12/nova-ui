@@ -6,16 +6,16 @@ import { InlineLoading, type InlineLoadingSize, type InlineLoadingState } from '
 afterEach(() => cleanup());
 
 describe('InlineLoading', () => {
-  it('renders loading medium by default', () => {
+  it('renders loading small by default', () => {
     render(<InlineLoading text="Saving changes" data-testid="inline-loading" />);
 
     const inlineLoading = screen.getByTestId('inline-loading');
     expect(inlineLoading).toHaveAttribute('data-state', 'loading');
-    expect(inlineLoading).toHaveAttribute('data-size', 'medium');
+    expect(inlineLoading).toHaveAttribute('data-size', 'small');
     expect(screen.getByText('Saving changes')).toBeVisible();
     expect(inlineLoading.querySelector('[aria-hidden="true"]')).toHaveAttribute(
       'data-size',
-      'medium',
+      'small',
     );
   });
 
