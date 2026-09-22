@@ -13,6 +13,12 @@ export type SpinnerProps = Omit<
 
 export function Spinner({ size = 'medium', className, ...props }: SpinnerProps) {
   const classNames = [styles.spinner, className].filter(Boolean).join(' ');
+  const safeProps = { ...props } as HTMLAttributes<HTMLSpanElement>;
 
-  return <span {...props} className={classNames} data-size={size} aria-hidden="true" />;
+  delete safeProps.children;
+  delete safeProps.role;
+  delete safeProps['aria-live'];
+  delete safeProps['aria-hidden'];
+
+  return <span {...safeProps} className={classNames} data-size={size} aria-hidden="true" />;
 }
