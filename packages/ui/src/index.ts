@@ -66,6 +66,9 @@ export type {
   SkeletonRegionProps,
 } from './skeleton/skeleton';
 
+export { Spinner } from './spinner/spinner';
+export type { SpinnerProps, SpinnerSize } from './spinner/spinner';
+
 export { Textarea } from './textarea/textarea';
 export type { TextareaProps } from './textarea/textarea';
 
