@@ -46,6 +46,13 @@ export type {
   InlineAlertTone,
 } from './inline-alert/inline-alert';
 
+export { InlineLoading } from './inline-loading/inline-loading';
+export type {
+  InlineLoadingProps,
+  InlineLoadingSize,
+  InlineLoadingState,
+} from './inline-loading/inline-loading';
+
 export { Menu, Popover } from './popover-menu/popover-menu';
 export type { MenuItem, MenuProps, OverlayAlign, PopoverProps } from './popover-menu/popover-menu';
 
