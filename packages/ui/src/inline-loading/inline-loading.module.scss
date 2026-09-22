@@ -1,0 +1,56 @@
+.inlineLoading {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  color: var(--nova-color-text-secondary);
+}
+
+.inlineLoading[data-size='small'] {
+  gap: var(--nova-space-2);
+  min-height: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.inlineLoading[data-size='medium'] {
+  gap: 0.625rem;
+  min-height: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.indicator {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: var(--nova-color-action-primary);
+  font-weight: 600;
+}
+
+.inlineLoading[data-state='success'] .indicator {
+  color: var(--nova-color-status-success);
+}
+
+.inlineLoading[data-state='error'] .indicator {
+  color: var(--nova-color-status-danger);
+}
+
+.inlineLoading[data-size='small'] .indicator {
+  width: 1rem;
+  height: 1rem;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.inlineLoading[data-size='medium'] .indicator {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+.text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
