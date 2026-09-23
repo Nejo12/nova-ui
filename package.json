@@ -27,14 +27,14 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "1.0.1",
-    "@changesets/cli": "3.0.2",
+    "@changesets/cli": "3.0.3",
     "@nova/eslint-config": "workspace:*",
     "@nova/stylelint-config": "workspace:*",
-    "eslint": "^10.10.0",
+    "eslint": "^10.11.0",
     "globals": "^17.12.0",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.8",
     "stylelint": "^17.15.0",
-    "turbo": "^2.10.12",
+    "turbo": "^2.11.2",
     "typescript": "~6.0.3"
   }
 }
