@@ -41,9 +41,9 @@
   "devDependencies": {
     "@nova/eslint-config": "workspace:*",
     "@nova/stylelint-config": "workspace:*",
-    "eslint": "^10.0.0",
+    "eslint": "^10.11.0",
     "stylelint": "^17.0.0",
     "typescript": "~6.0.3",
-    "vitest": "^5.0.0"
+    "vitest": "^5.0.1"
   }
 }
