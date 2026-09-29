@@ -1,5 +1,13 @@
 # @nova-component/ui
 
+## 0.5.0
+
+### Minor Changes
+
+- [#63](https://github.com/Nejo12/nova-ui/pull/63) [`ea22218`](https://github.com/Nejo12/nova-ui/commit/ea222187b3e8da2384faa89b375cdf784d4965e6) Thanks [@Nejo12](https://github.com/Nejo12)! - Add the accessible InlineLoading async-status primitive.
+
+- [#60](https://github.com/Nejo12/nova-ui/pull/60) [`0e0efaf`](https://github.com/Nejo12/nova-ui/commit/0e0efaf21e820999efe25850adda1140c7579abb) Thanks [@Nejo12](https://github.com/Nejo12)! - Add the decorative Spinner primitive with small, medium, and large sizes.
+
 ## 0.4.0
 
 ### Minor Changes
