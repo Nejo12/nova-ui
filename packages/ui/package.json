@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@nova-component/design-tokens": "workspace:*",
-    "lucide-react": "^1.47.0"
+    "lucide-react": "^1.48.0"
   },
   "scripts": {
     "build": "vite build -c vite.lib.config.ts && tsc -p tsconfig.build.json",
