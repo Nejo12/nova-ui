@@ -15,8 +15,8 @@ Figma Variables / audited product evidence
   -> normalized source JSON
   -> deterministic token build
   -> generated CSS custom properties + JSON
-  -> @nova/design-tokens
-  -> @nova/ui / Storybook
+  -> @nova-component/design-tokens
+  -> @nova-component/ui / Storybook
   -> product consumers
 ```
 
