@@ -33,6 +33,10 @@ import '@nova-component/ui/styles.css';
 
 ## Workspace
 
+Development requires Node.js 22.12 or newer (CI uses Node 24). This aligns the
+private workspace with its existing Vitest 5 requirement and jest-dom 7; it does
+not add a Node engine requirement to the published UI or token packages.
+
 ```text
 packages/
   design-tokens/
