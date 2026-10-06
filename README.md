@@ -19,6 +19,10 @@ import '@nova-component/design-tokens/tokens.css';
 import '@nova-component/ui/styles.css';
 ```
 
+## Component reference
+
+Browse the [generated shipped-component API and accessibility index](docs/components.md) for public types, key states and Storybook source links. The public entrypoint is authoritative.
+
 ## Principles
 
 - product-agnostic reusable components

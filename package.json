@@ -23,7 +23,9 @@
     "changeset": "changeset",
     "release:status": "changeset status --since=main",
     "release:version": "changeset version",
-    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm package:verify && pnpm storybook:build",
+    "check": "pnpm docs:verify && pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm package:verify && pnpm storybook:build",
+    "docs:generate": "node tooling/component-index/generate.mjs",
+    "docs:verify": "node tooling/component-index/generate.mjs --check",
     "consumers:verify": "node tooling/package-verify/verify.mjs --consumers"
   },
   "devDependencies": {

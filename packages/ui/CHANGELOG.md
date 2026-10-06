@@ -1,5 +1,11 @@
 # @nova-component/ui
 
+## 0.5.2
+
+### Patch Changes
+
+- [#66](https://github.com/Nejo12/nova-ui/pull/66) [`0a9e302`](https://github.com/Nejo12/nova-ui/commit/0a9e30211ebd3f19f7b3d2eaee923b17d4497dab) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update the Lucide React runtime dependency to the 1.48 family while preserving Nova's Icon and IconButton APIs.
+
 ## 0.5.1
 
 ### Patch Changes
