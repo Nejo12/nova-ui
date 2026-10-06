@@ -1,5 +1,6 @@
+import { createRef } from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Icon, type IconName, type IconSize, type IconTone } from './icon';
 
@@ -84,5 +85,23 @@ describe('Icon', () => {
     const icon = screen.getByTestId('calendar');
     expect(icon).toHaveClass('consumer-icon');
     expect(icon).toHaveAttribute('stroke-width', '1.5');
+  });
+});
+
+describe('Icon public ref', () => {
+  it('exposes the svg DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<SVGSVGElement>();
+    const { unmount } = render(<Icon ref={ref} name="search" />);
+    expect(ref.current?.tagName.toLowerCase()).toBe('svg');
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: SVGSVGElement | null) => void>();
+    const { unmount } = render(<Icon ref={ref} name="search" />);
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('svg');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });

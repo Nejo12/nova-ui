@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
 
 import styles from './avatar.module.scss';
@@ -12,19 +13,23 @@ export type AvatarProps = Omit<
   size?: AvatarSize;
 };
 
-export function Avatar({
-  initials,
-  size = 'medium',
-  className,
-  'aria-label': ariaLabel,
-  'aria-labelledby': ariaLabelledBy,
-  ...props
-}: AvatarProps) {
+export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
+  {
+    initials,
+    size = 'medium',
+    className,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    ...props
+  },
+  ref,
+) {
   const classNames = [styles.avatar, className].filter(Boolean).join(' ');
   const hasAccessibleName = ariaLabel !== undefined || ariaLabelledBy !== undefined;
 
   return (
     <span
+      ref={ref}
       {...props}
       className={classNames}
       data-size={size}
@@ -35,4 +40,4 @@ export function Avatar({
       {initials}
     </span>
   );
-}
+});
