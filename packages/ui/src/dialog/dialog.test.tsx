@@ -86,64 +86,6 @@ describe('Dialog', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('wraps focus within modal actions', () => {
-    render(
-      <Dialog
-        open
-        type="confirmation"
-        title="Confirm action"
-        cancelLabel="Cancel"
-        action={{ label: 'Confirm', onAction: vi.fn() }}
-        onClose={vi.fn()}
-      />,
-    );
-
-    const dialog = screen.getByRole('dialog');
-    const cancel = screen.getByRole('button', { name: 'Cancel' });
-    const confirm = screen.getByRole('button', { name: 'Confirm' });
-
-    cancel.focus();
-    fireEvent.keyDown(dialog, { key: 'Tab', shiftKey: true });
-    expect(confirm).toHaveFocus();
-
-    fireEvent.keyDown(dialog, { key: 'Tab' });
-    expect(cancel).toHaveFocus();
-  });
-
-  it('moves focus back inside when tabbing from outside the dialog', () => {
-    render(
-      <Dialog
-        open
-        type="confirmation"
-        title="Confirm action"
-        cancelLabel="Cancel"
-        action={{ label: 'Confirm', onAction: vi.fn() }}
-        onClose={vi.fn()}
-      />,
-    );
-
-    const dialog = screen.getByRole('dialog');
-    const cancel = screen.getByRole('button', { name: 'Cancel' });
-    document.body.focus();
-    fireEvent.keyDown(dialog, { key: 'Tab' });
-    expect(cancel).toHaveFocus();
-  });
-
-  it('ignores non-Tab key presses', () => {
-    render(
-      <Dialog
-        open
-        title="Information"
-        action={{ label: 'Continue', onAction: vi.fn() }}
-        onClose={vi.fn()}
-      />,
-    );
-
-    const action = screen.getByRole('button', { name: 'Continue' });
-    fireEvent.keyDown(screen.getByRole('dialog'), { key: 'ArrowDown' });
-    expect(action).toHaveFocus();
-  });
-
   it('closes when open becomes false and restores body overflow and focus', () => {
     const opener = document.createElement('button');
     document.body.append(opener);

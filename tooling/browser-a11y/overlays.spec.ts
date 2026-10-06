@@ -5,23 +5,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-// Candidate evidence only: stop the React Tab handler from receiving the event,
-// while preserving the browser's default navigation. Escape/cancel remain native.
-test.describe('native Dialog candidate', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.evaluate(() => {
-      document.addEventListener(
-        'keydown',
-        (event) => {
-          if (event.key === 'Tab' && document.querySelector('dialog[open]')) {
-            event.stopPropagation();
-          }
-        },
-        true,
-      );
-    });
-  });
-
+test.describe('Dialog native modal contract', () => {
   test('info initial focus, Escape, restoration and body cleanup', async ({ page }) => {
     const opener = page.getByRole('button', { name: 'Open information', exact: true });
     await opener.click();

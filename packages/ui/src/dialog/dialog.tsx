@@ -1,11 +1,4 @@
-import {
-  type KeyboardEvent,
-  type ReactNode,
-  type SyntheticEvent,
-  useEffect,
-  useId,
-  useRef,
-} from 'react';
+import { type ReactNode, type SyntheticEvent, useEffect, useId, useRef } from 'react';
 
 import styles from './dialog.module.scss';
 
@@ -50,19 +43,6 @@ type DestructiveDialogProps = DialogCommonProps & {
 };
 
 export type DialogProps = InfoDialogProps | ConfirmationDialogProps | DestructiveDialogProps;
-
-const FOCUSABLE_SELECTOR = [
-  'button:not([disabled])',
-  '[href]',
-  'input:not([disabled])',
-  'select:not([disabled])',
-  'textarea:not([disabled])',
-  '[tabindex]:not([tabindex="-1"])',
-].join(',');
-
-function getFocusableElements(dialog: HTMLDialogElement): HTMLElement[] {
-  return Array.from(dialog.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR));
-}
 
 export function Dialog({
   open,
@@ -133,38 +113,6 @@ export function Dialog({
     }
   }
 
-  function handleKeyDown(event: KeyboardEvent<HTMLDialogElement>) {
-    if (event.key !== 'Tab') {
-      return;
-    }
-
-    const dialog = dialogRef.current;
-    if (dialog === null) {
-      return;
-    }
-
-    const focusableElements = getFocusableElements(dialog);
-    const first = focusableElements[0];
-    const last = focusableElements.at(-1);
-
-    if (first === undefined || last === undefined) {
-      event.preventDefault();
-      dialog.focus();
-      return;
-    }
-
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    } else if (!dialog.contains(document.activeElement)) {
-      event.preventDefault();
-      first.focus();
-    }
-  }
-
   return (
     <dialog
       ref={dialogRef}
@@ -175,7 +123,6 @@ export function Dialog({
       aria-describedby={description === undefined ? undefined : descriptionId}
       aria-modal="true"
       onCancel={handleCancel}
-      onKeyDown={handleKeyDown}
     >
       <div className={styles.content}>
         <h2 className={styles.title} id={titleId}>
