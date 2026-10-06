@@ -8,7 +8,7 @@ Nova UI is consumed by multiple products. Accessibility and behavior regressions
 
 ## Decision
 
-Every reusable visual primitive added to `@nova/ui` must include:
+Every reusable visual primitive added to `@nova-component/ui` must include:
 
 - behavior tests with Vitest + Testing Library for its public interaction contract
 - Storybook coverage for the states that materially affect behavior or appearance
