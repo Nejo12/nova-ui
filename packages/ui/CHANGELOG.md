@@ -1,5 +1,11 @@
 # @nova-component/ui
 
+## 0.5.3
+
+### Patch Changes
+
+- [#77](https://github.com/Nejo12/nova-ui/pull/77) [`8af0b39`](https://github.com/Nejo12/nova-ui/commit/8af0b39ad04f11da54694510766c0a24d2f8f09f) Thanks [@Nejo12](https://github.com/Nejo12)! - Use native modal dialog Tab navigation instead of a redundant custom selector trap. Preserve initial focus, Escape/mandatory behavior, scroll cleanup and opener restoration, while allowing valid browser focusables such as contenteditable and summary. Verify Dialog, Popover, Menu and Tooltip in Chromium, Firefox and WebKit with browser accessibility tests.
+
 ## 0.5.2
 
 ### Patch Changes
