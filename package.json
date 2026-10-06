@@ -23,7 +23,9 @@
     "changeset": "changeset",
     "release:status": "changeset status --since=main",
     "release:version": "changeset version",
-    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm package:verify && pnpm storybook:build",
+    "check": "pnpm docs:verify && pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm package:verify && pnpm storybook:build",
+    "docs:generate": "node tooling/component-index/generate.mjs",
+    "docs:verify": "node tooling/component-index/generate.mjs --check",
     "test:browser": "playwright test -c tooling/browser-a11y/playwright.config.ts",
     "typecheck:browser": "tsc -p tooling/browser-a11y/tsconfig.json && pnpm --filter @nova-component/ui exec tsc -p browser-a11y/tsconfig.json",
     "consumers:verify": "node tooling/package-verify/verify.mjs --consumers"
