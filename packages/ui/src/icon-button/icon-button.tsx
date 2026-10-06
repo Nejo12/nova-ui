@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import type { ButtonHTMLAttributes } from 'react';
 
 import { Icon, type IconName } from '../icon/icon';
@@ -24,18 +25,15 @@ export type IconButtonProps = Omit<
     size?: IconButtonSize;
   };
 
-export function IconButton({
-  icon,
-  size = 'medium',
-  className,
-  type = 'button',
-  ...props
-}: IconButtonProps) {
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
+  { icon, size = 'medium', className, type = 'button', ...props },
+  ref,
+) {
   const classNames = [styles.iconButton, className].filter(Boolean).join(' ');
 
   return (
-    <button {...props} className={classNames} type={type} data-size={size}>
+    <button ref={ref} {...props} className={classNames} type={type} data-size={size}>
       <Icon name={icon} size={16} />
     </button>
   );
-}
+});

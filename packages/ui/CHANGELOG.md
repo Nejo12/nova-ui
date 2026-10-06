@@ -1,5 +1,11 @@
 # @nova-component/ui
 
+## 0.5.1
+
+### Patch Changes
+
+- [#75](https://github.com/Nejo12/nova-ui/pull/75) [`2e0dbb2`](https://github.com/Nejo12/nova-ui/commit/2e0dbb2356c8953dce012dcde3cfe7b0a8cabcc7) Thanks [@Nejo12](https://github.com/Nejo12)! - Forward public refs to native DOM targets in React 18.3 and React 19 for Button, TextInput, Textarea, Select, Checkbox, Radio, SearchInput, IconButton, Card, Badge, Fieldset, VisuallyHidden, Progress, Icon, Avatar, and Spinner. Existing props, defaults, and accessibility behavior are preserved.
+
 ## 0.5.0
 
 ### Minor Changes

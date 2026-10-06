@@ -1,5 +1,6 @@
+import { createRef } from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Checkbox } from '../checkbox/checkbox';
 import { Fieldset } from './fieldset';
@@ -71,5 +72,31 @@ describe('Fieldset', () => {
 
     expect(fieldset).toHaveAttribute('aria-describedby', expect.stringContaining('external-help'));
     expect(fieldset).toHaveAttribute('aria-describedby', expect.stringContaining(description.id));
+  });
+});
+
+describe('Fieldset public ref', () => {
+  it('exposes the fieldset DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<HTMLFieldSetElement>();
+    const { unmount } = render(
+      <Fieldset ref={ref} legend="Options">
+        <input />
+      </Fieldset>,
+    );
+    expect(ref.current?.tagName.toLowerCase()).toBe('fieldset');
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: HTMLFieldSetElement | null) => void>();
+    const { unmount } = render(
+      <Fieldset ref={ref} legend="Options">
+        <input />
+      </Fieldset>,
+    );
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('fieldset');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });

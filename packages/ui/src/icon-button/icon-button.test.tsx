@@ -1,3 +1,4 @@
+import { createRef } from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -86,5 +87,25 @@ describe('IconButton', () => {
 
     fireEvent.click(button);
     expect(onClick).not.toHaveBeenCalled();
+  });
+});
+
+describe('IconButton public ref', () => {
+  it('exposes the button DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<HTMLButtonElement>();
+    const { unmount } = render(<IconButton ref={ref} icon="search" aria-label="Search" />);
+    expect(ref.current?.tagName.toLowerCase()).toBe('button');
+    ref.current?.focus();
+    expect(ref.current).toHaveFocus();
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: HTMLButtonElement | null) => void>();
+    const { unmount } = render(<IconButton ref={ref} icon="search" aria-label="Search" />);
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('button');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });
