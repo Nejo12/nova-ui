@@ -2,8 +2,10 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { stdout } from 'node:process';
+import { argv, stdout } from 'node:process';
 import { URL } from 'node:url';
+
+import { verifyConsumers } from './consumer-smoke.mjs';
 
 const repoRoot = new URL('../../', import.meta.url);
 const uiManifest = JSON.parse(
@@ -42,6 +44,7 @@ const packages = [
 const outputDir = mkdtempSync(join(tmpdir(), 'nova-ui-pack-'));
 
 try {
+  const tarballs = [];
   for (const pkg of packages) {
     execFileSync('pnpm', ['--filter', pkg.filter, 'pack', '--pack-destination', outputDir], {
       cwd: repoRoot,
@@ -60,6 +63,7 @@ try {
     }
 
     const tarballPath = join(outputDir, tarball);
+    tarballs.push(tarballPath);
     const fileList = execFileSync('tar', ['-tzf', tarballPath], {
       encoding: 'utf8',
     })
@@ -105,6 +109,7 @@ try {
 
     stdout.write(`Verified ${pkg.manifest.name}@${pkg.manifest.version}\n`);
   }
+  if (argv.includes('--consumers')) verifyConsumers(outputDir, tarballs);
 } finally {
   rmSync(outputDir, { recursive: true, force: true });
 }

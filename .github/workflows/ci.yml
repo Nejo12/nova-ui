@@ -31,3 +31,17 @@ jobs:
 
       - name: Quality gates
         run: pnpm check
+
+  packed-consumers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.20.0
+          cache: npm
+          cache-dependency-path: tooling/package-verify/consumers/package-lock.json
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm consumers:verify
