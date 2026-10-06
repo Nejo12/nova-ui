@@ -1,5 +1,6 @@
+import { createRef } from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Progress } from './progress';
 
@@ -77,5 +78,23 @@ describe('Progress', () => {
     rerender(<Progress value={10} min={20} max={10} aria-label="Invalid bounds progress" />);
 
     expect(getIndicator(screen.getByRole('progressbar'))).toHaveStyle({ width: '0%' });
+  });
+});
+
+describe('Progress public ref', () => {
+  it('exposes the div DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<HTMLDivElement>();
+    const { unmount } = render(<Progress ref={ref} value={40} aria-label="Progress" />);
+    expect(ref.current?.tagName.toLowerCase()).toBe('div');
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: HTMLDivElement | null) => void>();
+    const { unmount } = render(<Progress ref={ref} value={40} aria-label="Progress" />);
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('div');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });

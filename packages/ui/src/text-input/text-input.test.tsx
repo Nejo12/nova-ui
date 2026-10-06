@@ -1,3 +1,4 @@
+import { createRef } from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -48,5 +49,25 @@ describe('TextInput', () => {
     render(<TextInput aria-label="Custom field" className="consumer-input" />);
 
     expect(screen.getByRole('textbox', { name: 'Custom field' })).toHaveClass('consumer-input');
+  });
+});
+
+describe('TextInput public ref', () => {
+  it('exposes the input DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<HTMLInputElement>();
+    const { unmount } = render(<TextInput ref={ref} aria-label="Name" />);
+    expect(ref.current?.tagName.toLowerCase()).toBe('input');
+    ref.current?.focus();
+    expect(ref.current).toHaveFocus();
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: HTMLInputElement | null) => void>();
+    const { unmount } = render(<TextInput ref={ref} aria-label="Name" />);
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('input');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });

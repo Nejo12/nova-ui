@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import type { ButtonHTMLAttributes } from 'react';
 
 import styles from './button.module.scss';
@@ -8,8 +9,11 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
 };
 
-export function Button({ variant = 'primary', className, type = 'button', ...props }: ButtonProps) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { variant = 'primary', className, type = 'button', ...props },
+  ref,
+) {
   const classNames = [styles.button, className].filter(Boolean).join(' ');
 
-  return <button {...props} className={classNames} type={type} data-variant={variant} />;
-}
+  return <button ref={ref} {...props} className={classNames} type={type} data-variant={variant} />;
+});

@@ -1,5 +1,6 @@
+import { createRef } from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { VisuallyHidden } from './visually-hidden';
 
@@ -43,5 +44,23 @@ describe('VisuallyHidden', () => {
     expect(hiddenContent).toBeInTheDocument();
     expect(hiddenContent).not.toHaveAttribute('aria-hidden');
     expect(screen.getByRole('button', { name: 'Close panel' })).toBeInTheDocument();
+  });
+});
+
+describe('VisuallyHidden public ref', () => {
+  it('exposes the span DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<HTMLSpanElement>();
+    const { unmount } = render(<VisuallyHidden ref={ref}>Label</VisuallyHidden>);
+    expect(ref.current?.tagName.toLowerCase()).toBe('span');
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: HTMLSpanElement | null) => void>();
+    const { unmount } = render(<VisuallyHidden ref={ref}>Label</VisuallyHidden>);
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('span');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });

@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
 
 import styles from './progress.module.scss';
@@ -20,12 +21,16 @@ function getVisualPercentage(value: number, min: number, max: number) {
   return Math.min(100, Math.max(0, percentage));
 }
 
-export function Progress({ value, min = 0, max = 100, className, ...props }: ProgressProps) {
+export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progress(
+  { value, min = 0, max = 100, className, ...props },
+  ref,
+) {
   const classNames = [styles.progress, className].filter(Boolean).join(' ');
   const visualPercentage = getVisualPercentage(value, min, max);
 
   return (
     <div
+      ref={ref}
       {...props}
       className={classNames}
       role="progressbar"
@@ -40,4 +45,4 @@ export function Progress({ value, min = 0, max = 100, className, ...props }: Pro
       />
     </div>
   );
-}
+});

@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import {
   Bell,
   Calendar,
@@ -59,12 +60,16 @@ const icons = {
   user: User,
 } satisfies Record<IconName, LucideIcon>;
 
-export function Icon({ name, size = 24, tone = 'default', className, ...props }: IconProps) {
+export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
+  { name, size = 24, tone = 'default', className, ...props },
+  ref,
+) {
   const IconComponent = icons[name];
   const classNames = [styles.icon, className].filter(Boolean).join(' ');
 
   return (
     <IconComponent
+      ref={ref}
       {...props}
       className={classNames}
       size={size}
@@ -74,4 +79,4 @@ export function Icon({ name, size = 24, tone = 'default', className, ...props }:
       focusable="false"
     />
   );
-}
+});
