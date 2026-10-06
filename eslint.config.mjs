@@ -4,6 +4,11 @@ import { base } from '@nova/eslint-config/base';
 export default [
   ...base,
   {
+    // Check generator cycles inside the repository, not the compiler/formatter vendor graphs.
+    files: ['tooling/component-index/*.mjs'],
+    rules: { 'import-x/no-cycle': ['error', { ignoreExternal: true }] },
+  },
+  {
     name: 'nova/browser-files',
     files: ['packages/ui/**/*.{ts,tsx}'],
     languageOptions: {
