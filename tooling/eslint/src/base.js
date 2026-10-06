@@ -11,6 +11,8 @@ export const base = tseslint.config(
       '**/dist/**',
       '**/.turbo/**',
       '**/coverage/**',
+      '**/test-results/**',
+      '**/playwright-report/**',
       '**/storybook-static/**',
     ],
   },

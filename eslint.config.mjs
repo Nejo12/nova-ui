@@ -5,7 +5,7 @@ export default [
   ...base,
   {
     name: 'nova/browser-files',
-    files: ['packages/ui/**/*.{ts,tsx}'],
+    files: ['packages/ui/**/*.{ts,tsx}', 'tooling/browser-a11y/**/*.ts'],
     languageOptions: {
       globals: { ...globals.browser },
     },
