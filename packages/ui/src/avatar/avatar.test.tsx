@@ -1,5 +1,6 @@
+import { createRef } from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Avatar, type AvatarSize } from './avatar';
 
@@ -77,5 +78,23 @@ describe('Avatar', () => {
 
     const avatar = screen.getByLabelText('Olaniyi Gabriel');
     expect(avatar).not.toHaveAttribute('aria-hidden');
+  });
+});
+
+describe('Avatar public ref', () => {
+  it('exposes the span DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<HTMLSpanElement>();
+    const { unmount } = render(<Avatar ref={ref} initials="AB" />);
+    expect(ref.current?.tagName.toLowerCase()).toBe('span');
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: HTMLSpanElement | null) => void>();
+    const { unmount } = render(<Avatar ref={ref} initials="AB" />);
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('span');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });

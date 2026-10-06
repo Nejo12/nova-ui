@@ -1,3 +1,9 @@
+import { SearchInput as SearchInputImplementation } from './search-input/search-input';
+import { IconButton as IconButtonImplementation } from './icon-button/icon-button';
+import { Icon as IconImplementation } from './icon/icon';
+import { Fieldset as FieldsetImplementation } from './fieldset/fieldset';
+import { VisuallyHidden as VisuallyHiddenImplementation } from './visually-hidden/visually-hidden';
+import { Avatar as AvatarImplementation } from './avatar/avatar';
 import { describe, expect, it } from 'vitest';
 import {
   Avatar,
@@ -17,27 +23,27 @@ describe('@nova-component/ui public entrypoint', () => {
   });
 
   it('exports Avatar from the public entrypoint', () => {
-    expect(Avatar).toBeTypeOf('function');
+    expect(Avatar).toBe(AvatarImplementation);
   });
 
   it('exports VisuallyHidden from the public entrypoint', () => {
-    expect(VisuallyHidden).toBeTypeOf('function');
+    expect(VisuallyHidden).toBe(VisuallyHiddenImplementation);
   });
 
   it('exports Fieldset from the public entrypoint', () => {
-    expect(Fieldset).toBeTypeOf('function');
+    expect(Fieldset).toBe(FieldsetImplementation);
   });
 
   it('exports Icon from the public entrypoint', () => {
-    expect(Icon).toBeTypeOf('function');
+    expect(Icon).toBe(IconImplementation);
   });
 
   it('exports IconButton from the public entrypoint', () => {
-    expect(IconButton).toBeTypeOf('function');
+    expect(IconButton).toBe(IconButtonImplementation);
   });
 
   it('exports SearchInput from the public entrypoint', () => {
-    expect(SearchInput).toBeTypeOf('function');
+    expect(SearchInput).toBe(SearchInputImplementation);
   });
 
   it('exports getBottomNavigationItemClassName from the public entrypoint', () => {

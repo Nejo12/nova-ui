@@ -1,5 +1,6 @@
+import { createRef } from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Card } from './card';
 
@@ -48,4 +49,29 @@ describe('Card', () => {
 
     expect(screen.getByRole('article')).toHaveAttribute('data-variant', 'elevated');
   });
+});
+
+describe('Card public ref', () => {
+  it.each(['article', 'section', 'div'] as const)(
+    'exposes the %s root and clears it on unmount',
+    (as) => {
+      const ref = createRef<HTMLElement>();
+      const { unmount } = render(
+        <Card ref={ref} as={as}>
+          Content
+        </Card>,
+      );
+      expect(ref.current?.tagName.toLowerCase()).toBe(as);
+      unmount();
+      expect(ref.current).toBeNull();
+    },
+  );
+});
+
+it('forwards a Card callback ref and clears it on unmount', () => {
+  const ref = vi.fn<(node: HTMLElement | null) => void>();
+  const { unmount } = render(<Card ref={ref}>Content</Card>);
+  expect(ref.mock.calls[0]?.[0]?.tagName).toBe('ARTICLE');
+  unmount();
+  expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
 });

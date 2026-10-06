@@ -1,3 +1,4 @@
+import { forwardRef, useCallback } from 'react';
 import type { HTMLAttributes, ReactNode } from 'react';
 
 import styles from './card.module.scss';
@@ -10,18 +11,22 @@ export type CardProps = HTMLAttributes<HTMLElement> & {
   variant?: CardVariant;
 };
 
-export function Card({
-  as: Component = 'article',
-  children,
-  variant = 'outlined',
-  className,
-  ...props
-}: CardProps) {
+export const Card = forwardRef<HTMLElement, CardProps>(function Card(
+  { as: Component = 'article', children, variant = 'outlined', className, ...props },
+  ref,
+) {
+  const setRef = useCallback(
+    (node: HTMLElement | null) => {
+      if (typeof ref === 'function') return ref(node);
+      else if (ref !== null) ref.current = node;
+    },
+    [ref],
+  );
   const classNames = [styles.card, className].filter(Boolean).join(' ');
 
   return (
-    <Component {...props} className={classNames} data-variant={variant}>
+    <Component ref={setRef} {...props} className={classNames} data-variant={variant}>
       {children}
     </Component>
   );
-}
+});

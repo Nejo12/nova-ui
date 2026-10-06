@@ -32,7 +32,7 @@ Every shared API must remain viable for both:
 - Klinnova: React/Next.js consumer
 - Slotnova: React/Vite consumer
 
-That means `@nova/ui` must remain React-runtime neutral and must not depend on framework runtime APIs.
+That means `@nova-component/ui` must remain React-runtime neutral and must not depend on framework runtime APIs.
 
 ## Review output
 

@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
 
 import styles from './spinner.module.scss';
@@ -11,7 +12,10 @@ export type SpinnerProps = Omit<
   size?: SpinnerSize;
 };
 
-export function Spinner({ size = 'medium', className, ...props }: SpinnerProps) {
+export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(function Spinner(
+  { size = 'medium', className, ...props },
+  ref,
+) {
   const classNames = [styles.spinner, className].filter(Boolean).join(' ');
   const safeProps = { ...props } as HTMLAttributes<HTMLSpanElement>;
 
@@ -20,5 +24,7 @@ export function Spinner({ size = 'medium', className, ...props }: SpinnerProps) 
   delete safeProps['aria-live'];
   delete safeProps['aria-hidden'];
 
-  return <span {...safeProps} className={classNames} data-size={size} aria-hidden="true" />;
-}
+  return (
+    <span ref={ref} {...safeProps} className={classNames} data-size={size} aria-hidden="true" />
+  );
+});

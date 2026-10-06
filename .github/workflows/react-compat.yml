@@ -1,0 +1,40 @@
+name: React compatibility
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  refs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - react: 18.3.1
+            types: 18.3.28
+            dom-types: 18.3.7
+          - react: 19.2.8
+            types: 19.2.18
+            dom-types: 19.2.7
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.20.0
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: Install supported React line in disposable checkout
+        run: pnpm --filter @nova-component/ui add --save-dev --save-exact react@${{ matrix.react }} react-dom@${{ matrix.react }} @types/react@${{ matrix.types }} @types/react-dom@${{ matrix.dom-types }}
+      - run: pnpm --filter @nova-component/design-tokens build
+      - name: Focused primitive and ref tests
+        run: pnpm --filter @nova-component/ui exec vitest run src/button src/text-input src/textarea src/select src/checkbox src/radio src/search-input src/icon-button src/card src/badge src/fieldset src/visually-hidden src/progress src/icon src/avatar src/spinner
+      - name: Verify emitted public ref declarations
+        run: |
+          pnpm --filter @nova-component/ui build
+          pnpm --filter @nova-component/ui exec tsc -p compatibility/tsconfig.json

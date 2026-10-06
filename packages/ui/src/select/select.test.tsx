@@ -1,3 +1,4 @@
+import { createRef } from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -62,5 +63,33 @@ describe('Select', () => {
     expect(select).toHaveAttribute('aria-invalid', 'true');
     expect(select).toHaveAttribute('aria-describedby', 'salary-period-error');
     expect(select).toHaveClass('consumer-select');
+  });
+});
+
+describe('Select public ref', () => {
+  it('exposes the select DOM node and clears the object ref on unmount', () => {
+    const ref = createRef<HTMLSelectElement>();
+    const { unmount } = render(
+      <Select ref={ref} aria-label="Choice">
+        <option>One</option>
+      </Select>,
+    );
+    expect(ref.current?.tagName.toLowerCase()).toBe('select');
+    ref.current?.focus();
+    expect(ref.current).toHaveFocus();
+    unmount();
+    expect(ref.current).toBeNull();
+  });
+
+  it('invokes a callback ref with the DOM node and null on unmount', () => {
+    const ref = vi.fn<(node: HTMLSelectElement | null) => void>();
+    const { unmount } = render(
+      <Select ref={ref} aria-label="Choice">
+        <option>One</option>
+      </Select>,
+    );
+    expect(ref.mock.calls[0]?.[0]?.tagName.toLowerCase()).toBe('select');
+    unmount();
+    expect(ref.mock.calls.at(-1)?.[0]).toBeNull();
   });
 });

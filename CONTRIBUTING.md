@@ -30,7 +30,7 @@ The repository owner merges manually. Do not enable auto-merge.
 
 ## Shared-component threshold
 
-A component belongs in `@nova/ui` when it is product-agnostic and either:
+A component belongs in `@nova-component/ui` when it is product-agnostic and either:
 
 - already repeated across products, or
 - clearly a foundational primitive required across product surfaces.

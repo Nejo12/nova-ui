@@ -23,7 +23,8 @@
     "changeset": "changeset",
     "release:status": "changeset status --since=main",
     "release:version": "changeset version",
-    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm package:verify && pnpm storybook:build"
+    "check": "pnpm format:check && pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm build && pnpm tokens:verify && pnpm package:verify && pnpm storybook:build",
+    "consumers:verify": "node tooling/package-verify/verify.mjs --consumers"
   },
   "devDependencies": {
     "@changesets/changelog-github": "1.0.1",
