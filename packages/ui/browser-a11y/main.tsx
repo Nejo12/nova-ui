@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Dialog, Menu, Popover, Tooltip } from '../src/index';
+import { Dialog, Menu, Popover, Tooltip, getBottomNavigationItemClassName } from '../src/index';
 import '@nova-component/design-tokens/tokens.css';
 
 type DialogMode = 'info' | 'confirmation' | 'mandatory' | 'disabled' | null;
@@ -71,6 +71,21 @@ function App() {
         <button type="button">Tooltip trigger</button>
       </Tooltip>
       <output aria-label="Selected option">{selected}</output>
+      {/*
+        Rendered as <button> (not <a>) deliberately: BottomNavigationItem is
+        router-agnostic and a native button is a valid consumer DOM choice
+        (e.g. a menu-trigger "More" item). Anchors have no UA-default
+        background/border, so only a <button> exercises whether the base
+        class itself supplies one instead of relying on browser chrome.
+      */}
+      <nav aria-label="Bottom navigation" style={{ display: 'flex' }}>
+        <button type="button" className={getBottomNavigationItemClassName({ isCurrent: true })}>
+          Home
+        </button>
+        <button type="button" className={getBottomNavigationItemClassName()}>
+          More
+        </button>
+      </nav>
       {mode === 'confirmation' ? (
         <Dialog
           open
