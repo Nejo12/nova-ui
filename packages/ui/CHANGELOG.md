@@ -1,5 +1,13 @@
 # @nova-component/ui
 
+## 0.5.3
+
+### Patch Changes
+
+- [#90](https://github.com/Nejo12/nova-ui/pull/90) [`4677190`](https://github.com/Nejo12/nova-ui/commit/46771906857b8b640c4fc722083ade1d59f3d0a4) Thanks [@Nejo12](https://github.com/Nejo12)! - Give the bottom-navigation-item base state an explicit `background: transparent` and `border: 0` instead of leaving them unset. Previously, a consumer rendering it on a native `<button>` (a valid DOM choice the helper is agnostic to) inherited the browser's UA-default button background/border, which was never designed against consumer themes and produced a persistent color-contrast failure in at least one Dark theme (Slotnova nova-ui#348). Anchors were unaffected since they have no UA-default background/border. The current state's explicit background/foreground pairing is unchanged.
+
+- [#77](https://github.com/Nejo12/nova-ui/pull/77) [`8af0b39`](https://github.com/Nejo12/nova-ui/commit/8af0b39ad04f11da54694510766c0a24d2f8f09f) Thanks [@Nejo12](https://github.com/Nejo12)! - Use native modal dialog Tab navigation instead of a redundant custom selector trap. Preserve initial focus, Escape/mandatory behavior, scroll cleanup and opener restoration, while allowing valid browser focusables such as contenteditable and summary. Verify Dialog, Popover, Menu and Tooltip in Chromium, Firefox and WebKit with browser accessibility tests.
+
 ## 0.5.2
 
 ### Patch Changes
