@@ -270,8 +270,8 @@ importers:
         specifier: ^17.0.0
         version: 17.0.0(postcss@8.5.28)(stylelint@17.15.0(supports-color@10.2.2)(typescript@6.0.3))
       stylelint-declaration-strict-value:
-        specifier: ^1.12.1
-        version: 1.12.1(stylelint@17.15.0(supports-color@10.2.2)(typescript@6.0.3))
+        specifier: ^1.13.0
+        version: 1.13.0(stylelint@17.15.0(supports-color@10.2.2)(typescript@6.0.3))
 
   tooling/token-build: {}
 
@@ -3157,11 +3157,11 @@ packages:
     peerDependencies:
       stylelint: ^17.0.0
 
-  stylelint-declaration-strict-value@1.12.1:
-    resolution: {integrity: sha512-KSQTXfWboeebH0tw3bZq5ZPLnkUBHvz9PtzAmIaqU7egLvjN7wU/F0tukFBVyGDKQEfDlLNGDNvhI/O1+6KipQ==}
+  stylelint-declaration-strict-value@1.13.0:
+    resolution: {integrity: sha512-d6Wv4qA1j+IcubFy1BjktfOwfXWK4HphJNTnvqKoqD25OqDRpiU/jSAcdZD2tXKg5WBfbH5qq1+bbg4iFzfKow==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
-      stylelint: '>=16 <=17'
+      stylelint: '>=16 <=18'
 
   stylelint-scss@7.2.0:
     resolution: {integrity: sha512-6E79Bachv0Iz0gqRUZgdqdXCsiq26DWBWIBNHYtjTmAp3wJu6cp/I37VfW7BPntmh2puF3bY09XWl4HZGrLhzw==}
@@ -6335,7 +6335,7 @@ snapshots:
       stylelint: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
       stylelint-config-recommended: 18.0.0(stylelint@17.15.0(supports-color@10.2.2)(typescript@6.0.3))
 
-  stylelint-declaration-strict-value@1.12.1(stylelint@17.15.0(supports-color@10.2.2)(typescript@6.0.3)):
+  stylelint-declaration-strict-value@1.13.0(stylelint@17.15.0(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
       regexp.escape: 2.0.1
       stylelint: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
